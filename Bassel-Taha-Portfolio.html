@@ -1,0 +1,3415 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Bassel Taha — Full Stack &amp; BIM Developer</title>
+  <meta content="Bassel Taha — Full Stack Developer &amp; BIM Automation Specialist. .NET, React, Azure, Autodesk APS."
+    name="description" />
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap"
+    rel="stylesheet" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #f5f7fb;
+      --bg2: #edf0f7;
+      --surface: rgba(255, 255, 255, 0.75);
+      --surface2: rgba(255, 255, 255, 0.9);
+      --surface3: rgba(255, 255, 255, 0.5);
+      --glass: rgba(255, 255, 255, 0.7);
+      --glass2: rgba(255, 255, 255, 0.55);
+      --accent: #2563eb;
+      --accent2: #0d9488;
+      --accent3: #e11d48;
+      --a-glow: rgba(37, 99, 235, 0.10);
+      --a-glow2: rgba(13, 148, 136, 0.08);
+      --a-glow3: rgba(225, 29, 72, 0.08);
+      --text1: #1e293b;
+      --text2: #475569;
+      --text3: #94a3b8;
+      --border: rgba(37, 99, 235, 0.12);
+      --border2: rgba(0, 0, 0, 0.06);
+      --sh-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+      --sh-acc: 0 8px 32px rgba(37, 99, 235, 0.15);
+      --r: 16px;
+      --r-sm: 10px;
+      --r-lg: 24px;
+      --ease: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    body.dark-mode {
+      --bg: #0f172a;
+      --bg2: #1e293b;
+      --surface: rgba(15, 23, 42, 0.75);
+      --surface2: rgba(30, 41, 59, 0.9);
+      --surface3: rgba(30, 41, 59, 0.5);
+      --glass: rgba(15, 23, 42, 0.75);
+      --glass2: rgba(30, 41, 59, 0.55);
+      --accent: #60a5fa;
+      --accent2: #2dd4bf;
+      --accent3: #fb7185;
+      --a-glow: rgba(96, 165, 250, 0.15);
+      --a-glow2: rgba(45, 212, 191, 0.12);
+      --a-glow3: rgba(251, 113, 133, 0.12);
+      --text1: #f8fafc;
+      --text2: #cbd5e1;
+      --text3: #94a3b8;
+      --border: rgba(255, 255, 255, 0.1);
+      --border2: rgba(255, 255, 255, 0.05);
+      --sh-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+      --sh-md: 0 8px 32px rgba(0, 0, 0, 0.5);
+      --sh-lg: 0 24px 64px rgba(0, 0, 0, 0.6);
+    }
+
+    body.dark-mode .cur {
+      mix-blend-mode: screen;
+      background: var(--accent);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text1);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── CUSTOM CURSOR ── */
+    .cur {
+      position: fixed;
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: width .25s, height .25s;
+      mix-blend-mode: multiply;
+    }
+
+    .cur-ring {
+      position: fixed;
+      width: 32px;
+      height: 32px;
+      border: 1.5px solid rgba(37, 99, 235, 0.35);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: all .15s ease-out;
+    }
+
+    /* ── SCROLL BAR ── */
+    .scroll-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3));
+      z-index: 9999;
+      transform-origin: left;
+      transform: scaleX(0);
+    }
+
+    /* ── GRAIN OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      opacity: 0.2;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      height: 64px;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--surface);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border);
+      transition: var(--ease);
+    }
+
+    nav.scrolled {
+      border-bottom-color: var(--border2);
+      box-shadow: var(--sh-sm);
+    }
+
+    .nav-logo {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--accent);
+      letter-spacing: -0.5px;
+      text-decoration: none;
+    }
+
+    .nav-logo span {
+      color: var(--accent2);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: .15rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text2);
+      font-size: .83rem;
+      font-weight: 500;
+      padding: .38rem .85rem;
+      border-radius: 100px;
+      transition: var(--ease);
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--accent);
+      background: var(--a-glow);
+    }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--accent), var(--accent2)) !important;
+      color: #fff !important;
+      font-weight: 600 !important;
+    }
+
+    .nav-cta:hover {
+      opacity: .9;
+      transform: translateY(-1px);
+      box-shadow: var(--sh-acc);
+    }
+
+    .nav-tog {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+
+    .nav-tog span {
+      width: 22px;
+      height: 2px;
+      background: var(--text1);
+      border-radius: 2px;
+      transition: var(--ease);
+    }
+
+    .rhs-nav {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+    }
+
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      color: var(--text1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--surface2);
+      transition: var(--ease);
+    }
+
+    .theme-toggle:hover {
+      background: var(--bg2);
+      transform: translateY(-2px);
+    }
+
+    body.dark-mode #theme-icon-moon {
+      display: none;
+    }
+
+    body.dark-mode #theme-icon-sun {
+      display: block !important;
+    }
+
+    /* ── ORB BLOBS ── */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 7rem 2rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .orb-1 {
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(37, 99, 235, 0.15), transparent 70%);
+      top: -200px;
+      right: -100px;
+    }
+
+    .orb-2 {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(225, 29, 72, 0.08), transparent 70%);
+      bottom: -100px;
+      left: -150px;
+    }
+
+    .orb-3 {
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(13, 148, 136, 0.10), transparent 70%);
+      top: 40%;
+      left: 40%;
+    }
+
+    #hero-canvas {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: rgba(13, 148, 136, 0.08);
+      border: 1px solid rgba(13, 148, 136, 0.2);
+      border-radius: 100px;
+      padding: .38rem 1rem .38rem .6rem;
+      font-size: .77rem;
+      font-weight: 500;
+      color: #0d9488;
+      margin-bottom: 1.5rem;
+      animation: fadeUp .6s ease both;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      background: #0d9488;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #0d9488;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1)
+      }
+
+      50% {
+        opacity: .6;
+        transform: scale(1.3)
+      }
+    }
+
+    .hero-name {
+      font-size: clamp(3.2rem, 9vw, 5.8rem);
+      font-weight: 900;
+      letter-spacing: -3.5px;
+      line-height: 1.02;
+      color: var(--text1);
+      margin-bottom: 1.2rem;
+      animation: fadeUp .7s .1s ease both;
+    }
+
+    .hero-name .grad {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 50%, var(--accent3) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: block;
+    }
+
+    .hero-titles {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: clamp(.95rem, 2vw, 1.15rem);
+      color: var(--accent2);
+      margin-bottom: 1.5rem;
+      min-height: 1.8em;
+      animation: fadeUp .7s .2s ease both;
+    }
+
+    .caret {
+      display: inline-block;
+      width: 2px;
+      height: 1em;
+      background: var(--accent2);
+      margin-left: 2px;
+      vertical-align: text-bottom;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1
+      }
+
+      50% {
+        opacity: 0
+      }
+    }
+
+    .hero-desc {
+      font-size: .97rem;
+      color: var(--text2);
+      max-width: 540px;
+      line-height: 1.9;
+      margin-bottom: 2.5rem;
+      animation: fadeUp .7s .3s ease both;
+    }
+
+    .hero-desc strong {
+      color: var(--text1);
+      font-weight: 600;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      animation: fadeUp .7s .4s ease both;
+    }
+
+    .btn-p {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: linear-gradient(135deg, var(--accent), #4f46e5);
+      color: #fff;
+      text-decoration: none;
+      padding: .82rem 2rem;
+      border-radius: 100px;
+      font-weight: 600;
+      font-size: .9rem;
+      transition: var(--ease);
+      box-shadow: 0 8px 32px rgba(37, 99, 235, 0.25);
+    }
+
+    .btn-p:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 48px rgba(37, 99, 235, 0.35);
+      filter: brightness(1.08);
+    }
+
+    .btn-s {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: var(--surface2);
+      color: var(--text1);
+      text-decoration: none;
+      padding: .82rem 2rem;
+      border-radius: 100px;
+      font-weight: 600;
+      font-size: .9rem;
+      border: 1px solid var(--border2);
+      transition: var(--ease);
+      backdrop-filter: blur(12px);
+    }
+
+    .btn-s:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: var(--sh-md);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 3.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--border);
+      animation: fadeUp .7s .5s ease both;
+    }
+
+    .stat-n {
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-l {
+      font-size: .75rem;
+      color: var(--text3);
+      margin-top: .25rem;
+      letter-spacing: .3px;
+    }
+
+    /* ── HERO CARD ── */
+    .hero-card {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 2rem;
+      box-shadow: var(--sh-md);
+      width: 270px;
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      animation: fadeUp .8s .4s ease both;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 20%;
+      right: 20%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(37, 99, 235, .4), transparent);
+    }
+
+    .hero-card-title {
+      font-size: .68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text3);
+      margin-bottom: 1.25rem;
+    }
+
+    .hc-row {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      margin-bottom: .9rem;
+    }
+
+    .hc-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+      border: 1px solid var(--border2);
+    }
+
+    .hc-label {
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--text1);
+    }
+
+    .hc-sub {
+      font-size: .7rem;
+      color: var(--text3);
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    /* ── SECTIONS ── */
+    .sec {
+      padding: 6rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .sec-label {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .72rem;
+      font-weight: 600;
+      color: var(--accent2);
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      margin-bottom: .75rem;
+    }
+
+    .sec-label::before {
+      content: '';
+      width: 18px;
+      height: 1.5px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      border-radius: 2px;
+    }
+
+    .sec-title {
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -2px;
+      margin-bottom: .4rem;
+      line-height: 1.1;
+      color: var(--text1);
+    }
+
+    .sec-sub {
+      font-size: .93rem;
+      color: var(--text3);
+      margin-bottom: 3rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.vis {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── DIVIDERS ── */
+    .sec-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin: 0 2rem;
+    }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      font-size: .96rem;
+      color: var(--text2);
+      line-height: 1.95;
+      margin-bottom: 1.25rem;
+    }
+
+    .about-text strong {
+      color: var(--text1);
+      font-weight: 600;
+    }
+
+    .hl-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .hl-card {
+      background: var(--glass);
+      border: 1px solid var(--border2);
+      border-radius: var(--r);
+      padding: 1.5rem;
+      transition: var(--ease);
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(16px);
+    }
+
+    .hl-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--a-glow), transparent);
+      opacity: 0;
+      transition: var(--ease);
+    }
+
+    .hl-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--sh-acc);
+      border-color: rgba(37, 99, 235, 0.2);
+    }
+
+    .hl-card:hover::before {
+      opacity: 1;
+    }
+
+    .hl-icon {
+      font-size: 1.7rem;
+      margin-bottom: .7rem;
+    }
+
+    .hl-title {
+      font-size: .88rem;
+      font-weight: 700;
+      margin-bottom: .25rem;
+      color: var(--text1);
+    }
+
+    .hl-desc {
+      font-size: .77rem;
+      color: var(--text3);
+      line-height: 1.6;
+    }
+
+    /* ── SKILLS ── */
+    #skills-wrap {
+      background: linear-gradient(135deg, var(--surface2), var(--surface));
+      border-radius: var(--r-lg);
+      padding: 4rem 3rem;
+      margin: 0 2rem;
+      box-shadow: var(--sh-md);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(24px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #skills-wrap::before {
+      content: '';
+      position: absolute;
+      top: -150px;
+      right: -150px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(37, 99, 235, 0.06), transparent 70%);
+      pointer-events: none;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .sk-cat {
+      background: var(--glass2);
+      border: 1px solid var(--border2);
+      border-radius: var(--r);
+      padding: 1.4rem;
+      transition: var(--ease);
+    }
+
+    .sk-cat:hover {
+      border-color: var(--accent);
+      background: var(--a-glow);
+    }
+
+    .sk-header {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      margin-bottom: 1rem;
+    }
+
+    .sk-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .85rem;
+      border: 1px solid var(--border2);
+    }
+
+    .sk-name {
+      font-size: .72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text3);
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .35rem;
+    }
+
+    .t {
+      display: inline-flex;
+      align-items: center;
+      padding: .26rem .65rem;
+      border-radius: 6px;
+      font-size: .72rem;
+      font-weight: 500;
+      transition: var(--ease);
+      cursor: default;
+      border: 1px solid transparent;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .t:hover {
+      transform: translateY(-2px) scale(1.04);
+    }
+
+    .tb {
+      background: rgba(37, 99, 235, 0.08);
+      color: #2563eb;
+      border-color: rgba(37, 99, 235, 0.15);
+    }
+
+    .tc {
+      background: rgba(13, 148, 136, 0.08);
+      color: #0d9488;
+      border-color: rgba(13, 148, 136, 0.15);
+    }
+
+    .tp {
+      background: rgba(225, 29, 72, 0.06);
+      color: #be123c;
+      border-color: rgba(225, 29, 72, 0.12);
+    }
+
+    .tg {
+      background: rgba(22, 163, 74, 0.08);
+      color: #16a34a;
+      border-color: rgba(22, 163, 74, 0.15);
+    }
+
+    .to {
+      background: rgba(234, 88, 12, 0.08);
+      color: #ea580c;
+      border-color: rgba(234, 88, 12, 0.15);
+    }
+
+    .tpk {
+      background: rgba(168, 85, 247, 0.08);
+      color: #7c3aed;
+      border-color: rgba(168, 85, 247, 0.15);
+    }
+
+    .ti {
+      background: rgba(99, 102, 241, 0.08);
+      color: #6366f1;
+      border-color: rgba(99, 102, 241, 0.15);
+    }
+
+    /* ── EXPERIENCE (modernized) ── */
+    .exp-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .exp-card {
+      background: var(--glass);
+      border: 1px solid var(--border2);
+      border-radius: var(--r-lg);
+      padding: 0;
+      transition: var(--ease);
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(16px);
+    }
+
+    .exp-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(to bottom, var(--accent), var(--accent2));
+      opacity: 0;
+      transition: var(--ease);
+      border-radius: 4px 0 0 4px;
+    }
+
+    .exp-card:hover {
+      box-shadow: var(--sh-md);
+      border-color: rgba(37, 99, 235, 0.2);
+      transform: translateY(-3px);
+    }
+
+    .exp-card:hover::before {
+      opacity: 1;
+    }
+
+    .exp-card.now {
+      border-left: 3px solid var(--accent2);
+    }
+
+    .exp-card.now::before {
+      opacity: 0;
+    }
+
+    .exp-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding: 1.8rem 2rem 0;
+      flex-wrap: wrap;
+    }
+
+    .exp-title-wrapper {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.1rem;
+      flex: 1;
+      min-width: 220px;
+    }
+
+    .exp-logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      object-fit: contain;
+      background: #ffffff;
+      padding: .35rem;
+      border: 1px solid var(--border2);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+      flex-shrink: 0;
+    }
+
+    .exp-title-block {
+      flex: 1;
+    }
+
+    .exp-role {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--text1);
+      line-height: 1.35;
+      margin-bottom: .25rem;
+    }
+
+    .exp-company {
+      font-size: .88rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: .3rem;
+    }
+
+    .exp-company-sub {
+      font-size: .78rem;
+      color: var(--text3);
+      line-height: 1.5;
+    }
+
+    .exp-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: .35rem;
+      flex-shrink: 0;
+    }
+
+    .exp-period {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .72rem;
+      color: var(--accent);
+      font-weight: 600;
+      background: rgba(37, 99, 235, 0.06);
+      padding: .28rem .85rem;
+      border-radius: 100px;
+      border: 1px solid rgba(37, 99, 235, 0.12);
+      white-space: nowrap;
+    }
+
+    .exp-loc {
+      font-size: .74rem;
+      color: var(--text3);
+      white-space: nowrap;
+    }
+
+    .exp-badge-current {
+      font-size: .65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      background: rgba(13, 148, 136, 0.08);
+      color: #0d9488;
+      padding: .22rem .7rem;
+      border-radius: 100px;
+      border: 1px solid rgba(13, 148, 136, 0.2);
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+    }
+
+    .exp-badge-dot {
+      width: 6px;
+      height: 6px;
+      background: #0d9488;
+      border-radius: 50%;
+      box-shadow: 0 0 6px #0d9488;
+      animation: pulse 2s infinite;
+    }
+
+    .exp-body {
+      padding: 1.25rem 2rem 1.8rem;
+    }
+
+    .exp-key-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .6rem;
+      margin-bottom: 1rem;
+    }
+
+    .exp-metric {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      padding: .25rem .7rem;
+      border-radius: 8px;
+      font-size: .7rem;
+      font-weight: 600;
+      background: rgba(37, 99, 235, 0.05);
+      color: var(--accent);
+      border: 1px solid rgba(37, 99, 235, 0.1);
+    }
+
+    .exp-metric.green {
+      background: rgba(13, 148, 136, 0.05);
+      color: #0d9488;
+      border-color: rgba(13, 148, 136, 0.1);
+    }
+
+    .exp-metric.red {
+      background: rgba(225, 29, 72, 0.05);
+      color: #be123c;
+      border-color: rgba(225, 29, 72, 0.1);
+    }
+
+    .exp-pts {
+      list-style: none;
+    }
+
+    .exp-pts li {
+      font-size: .84rem;
+      color: var(--text2);
+      padding: .25rem 0 .25rem 1.3rem;
+      position: relative;
+      line-height: 1.7;
+    }
+
+    .exp-pts li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--accent2);
+      font-size: .7rem;
+      top: .4rem;
+    }
+
+    .exp-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .3rem;
+      padding: 0 2rem 1.5rem;
+    }
+
+    .exp-tag {
+      background: rgba(0, 0, 0, 0.03);
+      color: var(--text3);
+      padding: .2rem .55rem;
+      border-radius: 6px;
+      font-size: .66rem;
+      font-family: 'JetBrains Mono', monospace;
+      border: 1px solid var(--border2);
+      transition: var(--ease);
+    }
+
+    .exp-card:hover .exp-tag {
+      border-color: rgba(37, 99, 235, 0.15);
+      color: var(--text2);
+    }
+
+
+
+    /* ── PROJECTS ── */
+    .proj-filters {
+      display: flex;
+      gap: .5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .f-btn {
+      padding: .38rem 1rem;
+      border-radius: 100px;
+      border: 1px solid var(--border2);
+      background: var(--surface2);
+      color: var(--text2);
+      font-size: .78rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--ease);
+      font-family: inherit;
+      backdrop-filter: blur(8px);
+    }
+
+    .f-btn:hover,
+    .f-btn.active {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      border-color: transparent;
+      box-shadow: var(--sh-acc);
+    }
+
+    .proj-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .proj-card {
+      background: var(--glass);
+      border: 1px solid var(--border2);
+      border-radius: var(--r-lg);
+      padding: 0;
+      transition: var(--ease);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .proj-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.03), transparent);
+      opacity: 0;
+      transition: var(--ease);
+      pointer-events: none;
+    }
+
+    .proj-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(37, 99, 235, 0.2);
+      border-color: rgba(37, 99, 235, 0.2);
+    }
+
+    .proj-card:hover::after {
+      opacity: 1;
+    }
+
+    .proj-card.hide {
+      display: none;
+    }
+
+    .proj-top-bar {
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .4s ease;
+    }
+
+    .proj-card:hover .proj-top-bar {
+      transform: scaleX(1);
+    }
+
+    .proj-body {
+      padding: 1.6rem 1.75rem 1.75rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .proj-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: .85rem;
+    }
+
+    .p-cat {
+      display: inline-flex;
+      align-items: center;
+      gap: .3rem;
+      padding: .22rem .65rem;
+      border-radius: 100px;
+      font-size: .66rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      white-space: nowrap;
+    }
+
+    .cat-bim {
+      background: rgba(37, 99, 235, 0.08);
+      color: #2563eb;
+      border: 1px solid rgba(37, 99, 235, 0.15);
+    }
+
+    .cat-cloud {
+      background: rgba(13, 148, 136, 0.08);
+      color: #0d9488;
+      border: 1px solid rgba(13, 148, 136, 0.15);
+    }
+
+    .cat-ai {
+      background: rgba(168, 85, 247, 0.08);
+      color: #7c3aed;
+      border: 1px solid rgba(168, 85, 247, 0.15);
+    }
+
+    .cat-fs {
+      background: rgba(22, 163, 74, 0.08);
+      color: #16a34a;
+      border: 1px solid rgba(22, 163, 74, 0.15);
+    }
+
+    .cat-dt {
+      background: rgba(234, 88, 12, 0.08);
+      color: #ea580c;
+      border: 1px solid rgba(234, 88, 12, 0.15);
+    }
+
+    .proj-impact {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      flex-shrink: 0;
+    }
+
+    .impact-val {
+      font-size: 1.3rem;
+      font-weight: 800;
+      line-height: 1;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .impact-lbl {
+      font-size: .62rem;
+      color: var(--text3);
+      text-align: right;
+      margin-top: .1rem;
+      line-height: 1.3;
+      max-width: 70px;
+    }
+
+    .p-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: .3rem;
+      line-height: 1.35;
+      color: var(--text1);
+    }
+
+    .p-role {
+      font-size: .7rem;
+      font-weight: 600;
+      color: var(--text3);
+      text-transform: uppercase;
+      letter-spacing: .6px;
+      margin-bottom: .7rem;
+    }
+
+    .p-desc {
+      font-size: .82rem;
+      color: var(--text2);
+      line-height: 1.8;
+      margin-bottom: 1.25rem;
+      flex: 1;
+    }
+
+    .proj-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .75rem;
+    }
+
+    .p-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .3rem;
+    }
+
+    .p-tag {
+      background: rgba(0, 0, 0, 0.03);
+      color: var(--text3);
+      padding: .18rem .52rem;
+      border-radius: 5px;
+      font-size: .65rem;
+      font-family: 'JetBrains Mono', monospace;
+      border: 1px solid var(--border2);
+      transition: var(--ease);
+    }
+
+    .proj-card:hover .p-tag {
+      border-color: rgba(37, 99, 235, 0.15);
+      color: var(--text2);
+    }
+
+    /* ── EDUCATION ── */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .edu-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .edu-card {
+      background: var(--glass);
+      border: 1px solid var(--border2);
+      border-radius: var(--r);
+      padding: 2rem;
+      transition: var(--ease);
+      backdrop-filter: blur(16px);
+    }
+
+    .edu-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--sh-acc);
+      border-color: rgba(37, 99, 235, 0.2);
+    }
+
+    .edu-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      background: var(--a-glow);
+      border: 1px solid var(--border2);
+    }
+
+    .edu-deg {
+      font-size: .96rem;
+      font-weight: 700;
+      margin-bottom: .3rem;
+      color: var(--text1);
+    }
+
+    .edu-school {
+      font-size: .83rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: .25rem;
+    }
+
+    .edu-year {
+      font-size: .75rem;
+      color: var(--text3);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* ── CERTIFICATIONS CARDS ── */
+    .certs-label {
+      font-size: .72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--text3);
+      margin-bottom: 1.25rem;
+      margin-top: .5rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .certs-label::before {
+      content: '';
+      width: 14px;
+      height: 1.5px;
+      background: linear-gradient(90deg, var(--accent3), var(--accent));
+      border-radius: 2px;
+    }
+
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+
+    .cert-card {
+      background: var(--glass);
+      border: 1px solid var(--border2);
+      border-radius: var(--r);
+      padding: 1.35rem 1.5rem;
+      transition: var(--ease);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+      backdrop-filter: blur(12px);
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    .cert-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3));
+      opacity: 0;
+      transition: var(--ease);
+    }
+
+    .cert-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--sh-md);
+      border-color: rgba(37, 99, 235, 0.2);
+    }
+
+    .cert-card:hover::before {
+      opacity: 1;
+    }
+
+    .cert-card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: .5rem;
+    }
+
+    .cert-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .cert-icon img {
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+    }
+
+    .cert-icon.blue {
+      background: rgba(37, 99, 235, 0.08);
+      border: 1px solid rgba(37, 99, 235, 0.12);
+    }
+
+    .cert-icon.green {
+      background: rgba(13, 148, 136, 0.08);
+      border: 1px solid rgba(13, 148, 136, 0.12);
+    }
+
+    .cert-icon.red {
+      background: rgba(225, 29, 72, 0.06);
+      border: 1px solid rgba(225, 29, 72, 0.1);
+    }
+
+    .cert-icon.purple {
+      background: rgba(124, 58, 237, 0.08);
+      border: 1px solid rgba(124, 58, 237, 0.12);
+    }
+
+    .cert-icon.orange {
+      background: rgba(234, 88, 12, 0.08);
+      border: 1px solid rgba(234, 88, 12, 0.12);
+    }
+
+    .cert-link-icon {
+      color: var(--text3);
+      transition: var(--ease);
+      flex-shrink: 0;
+      margin-top: .2rem;
+    }
+
+    .cert-card:hover .cert-link-icon {
+      color: var(--accent);
+      transform: translate(2px, -2px);
+    }
+
+    .cert-name {
+      font-size: .84rem;
+      font-weight: 600;
+      color: var(--text1);
+      line-height: 1.45;
+    }
+
+    .cert-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .5rem;
+      margin-top: auto;
+    }
+
+    .cert-source {
+      font-size: .66rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .6px;
+      padding: .2rem .6rem;
+      border-radius: 100px;
+    }
+
+    .cert-source.coursera {
+      background: rgba(37, 99, 235, 0.06);
+      color: #2563eb;
+      border: 1px solid rgba(37, 99, 235, 0.12);
+    }
+
+    .cert-source.udemy {
+      background: rgba(168, 85, 247, 0.06);
+      color: #7c3aed;
+      border: 1px solid rgba(168, 85, 247, 0.12);
+    }
+
+    .cert-source.linkedin {
+      background: rgba(13, 148, 136, 0.06);
+      color: #0d9488;
+      border: 1px solid rgba(13, 148, 136, 0.12);
+    }
+
+    .cert-source.maharatech {
+      background: rgba(234, 88, 12, 0.06);
+      color: #ea580c;
+      border: 1px solid rgba(234, 88, 12, 0.12);
+    }
+
+    .cert-source.iti {
+      background: rgba(225, 29, 72, 0.05);
+      color: #be123c;
+      border: 1px solid rgba(225, 29, 72, 0.1);
+    }
+
+    .cert-source.deeplearning {
+      background: rgba(22, 163, 74, 0.06);
+      color: #16a34a;
+      border: 1px solid rgba(22, 163, 74, 0.12);
+    }
+
+    .cert-source.meta {
+      background: rgba(37, 99, 235, 0.06);
+      color: #2563eb;
+      border: 1px solid rgba(37, 99, 235, 0.12);
+    }
+
+    .cert-source.ztm {
+      background: rgba(234, 88, 12, 0.06);
+      color: #ea580c;
+      border: 1px solid rgba(234, 88, 12, 0.12);
+    }
+
+    .cert-category {
+      font-size: .62rem;
+      color: var(--text3);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      padding: 4rem 2rem 8rem;
+    }
+
+    .contact-wrap {
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+
+    .contact-card {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 4.5rem;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(24px);
+    }
+
+    .contact-card-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3.5rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% -20%, rgba(37, 99, 235, 0.08), transparent 65%);
+      pointer-events: none;
+    }
+
+    .contact-card::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 15%;
+      right: 15%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.3), transparent);
+    }
+
+    .c-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .72rem;
+      font-weight: 600;
+      color: var(--accent2);
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .c-title {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      letter-spacing: -2px;
+      margin-bottom: .9rem;
+      position: relative;
+      line-height: 1.1;
+      color: var(--text1);
+    }
+
+    .c-sub {
+      font-size: .95rem;
+      color: var(--text2);
+      margin-bottom: 2.5rem;
+      max-width: 480px;
+      position: relative;
+      line-height: 1.8;
+    }
+
+    .c-links {
+      display: flex;
+      gap: .75rem;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .contact-qr-sec {
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid var(--border2);
+      border-radius: var(--r-lg);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+      box-shadow: var(--sh-md);
+      transition: var(--ease);
+    }
+
+    .contact-qr-sec:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--sh-lg);
+      border-color: rgba(37, 99, 235, 0.2);
+    }
+
+    .qr-box {
+      background: var(--surface2);
+      padding: .75rem;
+      border-radius: 12px;
+      box-shadow: var(--sh-sm);
+      border: 1px solid var(--border2);
+      display: flex;
+    }
+
+    .qr-img {
+      width: 130px;
+      height: 130px;
+      display: block;
+      border-radius: 6px;
+    }
+
+    .qr-text {
+      font-size: .75rem;
+      font-weight: 700;
+      color: var(--text1);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .c-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .78rem 1.5rem;
+      border-radius: 100px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: .85rem;
+      transition: var(--ease);
+      border: 1px solid var(--border2);
+      background: var(--surface2);
+      color: var(--text1);
+      backdrop-filter: blur(8px);
+    }
+
+    .c-link:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--sh-md);
+    }
+
+    .c-email {
+      border-color: rgba(37, 99, 235, 0.2);
+      color: var(--accent);
+    }
+
+    .c-email:hover {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .c-linkedin {
+      border-color: rgba(10, 102, 194, 0.2);
+      color: #0a66c2;
+    }
+
+    .c-linkedin:hover {
+      background: #0a66c2;
+      color: #fff;
+      border-color: #0a66c2;
+    }
+
+    .c-github {
+      border-color: rgba(0, 0, 0, 0.1);
+      color: var(--text2);
+    }
+
+    .c-github:hover {
+      background: #1e293b;
+      color: #fff;
+      border-color: #1e293b;
+    }
+
+    .c-phone {
+      border-color: rgba(13, 148, 136, 0.2);
+      color: #0d9488;
+    }
+
+    .c-phone:hover {
+      background: #0d9488;
+      color: #fff;
+      border-color: #0d9488;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text3);
+      font-size: .78rem;
+      border-top: 1px solid var(--border2);
+      position: relative;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:900px) {
+      .hero-wrap {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .hero-card {
+        display: none;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .edu-row {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-card-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 3rem;
+      }
+
+      .c-sub {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .c-links {
+        justify-content: center;
+      }
+    }
+
+    @media(max-width:680px) {
+      nav {
+        padding: 0 1.2rem;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: var(--surface2);
+        backdrop-filter: blur(20px);
+        padding: 1rem 1.2rem 1.5rem;
+        border-bottom: 1px solid var(--border);
+        box-shadow: var(--sh-md);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-tog {
+        display: flex;
+      }
+
+      .sec {
+        padding: 4rem 1.2rem;
+      }
+
+      #skills-wrap {
+        margin: 0 1.2rem;
+        padding: 2.5rem 1.5rem;
+      }
+
+      .hl-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero-stats {
+        gap: 1.5rem;
+      }
+
+      .contact-card {
+        padding: 2.5rem 1.5rem;
+      }
+
+      .certs-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cur,
+      .cur-ring {
+        display: none;
+      }
+
+      .proj-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .exp-header {
+        padding: 1.4rem 1.4rem 0;
+      }
+
+      .exp-body {
+        padding: 1rem 1.4rem 1.4rem;
+      }
+
+      .exp-tags {
+        padding: 0 1.4rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark-mode');
+    }
+  </script>
+  <div class="cur" id="cur"></div>
+  <div class="cur-ring" id="curR"></div>
+  <div class="scroll-bar" id="sb"></div>
+  <!-- NAV -->
+  <nav id="nav">
+    <a class="nav-logo" href="#hero">&lt;<span>Bassel_Taha_Keshk</span> /&gt;</a>
+    <div class="rhs-nav">
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a class="nav-cta" href="#contact">Contact</a></li>
+      </ul>
+      <button aria-label="Toggle dark mode" class="theme-toggle" id="theme-toggle">
+        <svg fill="none" height="18" id="theme-icon-sun" stroke="currentColor" stroke-linecap="round"
+          stroke-linejoin="round" stroke-width="2" style="display:none;" viewbox="0 0 24 24" width="18"
+          xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" x2="12" y1="1" y2="3"></line>
+          <line x1="12" x2="12" y1="21" y2="23"></line>
+          <line x1="4.22" x2="5.64" y1="4.22" y2="5.64"></line>
+          <line x1="18.36" x2="19.78" y1="18.36" y2="19.78"></line>
+          <line x1="1" x2="3" y1="12" y2="12"></line>
+          <line x1="21" x2="23" y1="12" y2="12"></line>
+          <line x1="4.22" x2="5.64" y1="19.78" y2="18.36"></line>
+          <line x1="18.36" x2="19.78" y1="5.64" y2="4.22"></line>
+        </svg>
+        <svg fill="none" height="18" id="theme-icon-moon" stroke="currentColor" stroke-linecap="round"
+          stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+      <button aria-label="Toggle menu" class="nav-tog" id="nav-tog">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <!-- HERO -->
+  <section id="hero">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-wrap">
+      <div class="hero-left">
+        <div class="hero-badge">
+          <div class="badge-dot"></div>
+          Available for new opportunities
+        </div>
+        <h1 class="hero-name">
+          Bassel<span class="grad">Taha.</span>
+        </h1>
+        <div class="hero-titles">
+          <span id="typewriter"></span><span class="caret"></span>
+        </div>
+        <p class="hero-desc">
+          Full Stack Developer &amp; BIM Automation Specialist bridging Civil Engineering domain expertise with
+          cloud-native software. Building AEC platforms on <strong>Azure</strong>, <strong>.NET</strong>,
+          <strong>React</strong> and <strong>Autodesk APS</strong> — turning multi-day coordination tasks into hours.
+        </p>
+        <div class="hero-actions">
+          <a class="btn-p" href="#projects">
+            <svg fill="none" height="15" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="15">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+            </svg>
+            View Projects
+          </a>
+          <a class="btn-s" href="#contact">
+            <svg fill="none" height="15" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="15">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,12 2,6"></polyline>
+            </svg>
+            Get in touch
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-n" data-count="4">0</div>
+            <div class="stat-l">Years Experience</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-n" data-count="18">0</div>
+            <div class="stat-l">Projects Shipped</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-n" data-count="30">0</div>
+            <div class="stat-l">Technologies</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-n" data-count="80">0</div>
+            <div class="stat-l">% Efficiency Gains</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-title">Tech at a glance</div>
+        <div class="hc-row">
+          <div class="hc-icon" style="background:rgba(37,99,235,0.08)">🔷</div>
+          <div>
+            <div class="hc-label">.NET 10 / C#</div>
+            <div class="hc-sub">Backend &amp; Architecture</div>
+          </div>
+        </div>
+        <div class="hc-row">
+          <div class="hc-icon" style="background:rgba(13,148,136,0.08)">⚛️</div>
+          <div>
+            <div class="hc-label">React / TypeScript</div>
+            <div class="hc-sub">Frontend &amp; UI</div>
+          </div>
+        </div>
+        <div class="hc-row">
+          <div class="hc-icon" style="background:rgba(99,102,241,0.08)">☁️</div>
+          <div>
+            <div class="hc-label">Azure / AKS</div>
+            <div class="hc-sub">Cloud &amp; DevOps</div>
+          </div>
+        </div>
+        <div class="hc-row">
+          <div class="hc-icon" style="background:rgba(22,163,74,0.08)">🏗️</div>
+          <div>
+            <div class="hc-label">Autodesk APS</div>
+            <div class="hc-sub">BIM &amp; AEC Platform</div>
+          </div>
+        </div>
+        <div class="hc-row" style="margin-bottom:0">
+          <div class="hc-icon" style="background:rgba(225,29,72,0.06)">🤖</div>
+          <div>
+            <div class="hc-label">LLM / LangChain</div>
+            <div class="hc-sub">AI Integration</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="sec-divider"></div>
+  <!-- ABOUT -->
+  <section class="sec" id="about">
+    <div class="reveal">
+      <p class="sec-label">Who I am</p>
+      <h2 class="sec-title">About Me</h2>
+      <p class="sec-sub">A builder at the intersection of software engineering and construction technology.</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>I'm a <strong>Full Stack Developer &amp; BIM Automation Specialist</strong> with a Bachelor's in Civil
+          Engineering and 4+ years of hands-on experience building production-grade AEC technology platforms — from
+          cloud microservices and Kubernetes-deployed backends to browser-based 3D BIM viewers and AI-driven workflow
+          engines.</p>
+        <p>At <strong>Saipem Abu Dhabi</strong>, I architect cloud-native solutions on Azure, lead .NET migrations, and
+          integrate Generative AI agents directly into BIM pipelines — turning multi-day coordination tasks into hours
+          of automated processing.</p>
+        <p>I combine <strong>domain-specific civil engineering knowledge</strong> with deep technical expertise in C#,
+          Python, React, and Autodesk Platform Services to drive digital transformation in construction — eliminating
+          manual processes and making complex data accessible to everyone on a project.</p>
+      </div>
+      <div class="hl-grid reveal">
+        <div class="hl-card">
+          <div class="hl-icon">☁️</div>
+          <div class="hl-title">Cloud Architecture</div>
+          <div class="hl-desc">Migrating enterprise platforms to microservices on Azure AKS with high-availability
+            monitoring</div>
+        </div>
+        <div class="hl-card">
+          <div class="hl-icon">🏗️</div>
+          <div class="hl-title">BIM Automation</div>
+          <div class="hl-desc">APS, Revit API, Navisworks — automating complex 3D workflows and IFC interoperability
+          </div>
+        </div>
+        <div class="hl-card">
+          <div class="hl-icon">🤖</div>
+          <div class="hl-title">AI Integration</div>
+          <div class="hl-desc">Embedding LLM agents into engineering pipelines and building NLQ interfaces for databases
+          </div>
+        </div>
+        <div class="hl-card">
+          <div class="hl-icon">⚡</div>
+          <div class="hl-title">Full Stack</div>
+          <div class="hl-desc">End-to-end product delivery — ASP.NET Core APIs, React frontends, UI/UX with Figma</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="sec-divider"></div>
+  <!-- SKILLS -->
+  <div class="sec" id="skills" style="padding:0;max-width:1100px;margin:0 auto;">
+    <div id="skills-wrap">
+      <div class="reveal">
+        <p class="sec-label">Expertise</p>
+        <h2 class="sec-title">Skills &amp; Technologies</h2>
+        <p class="sec-sub">Across the full software engineering spectrum — from browser to cloud to construction site.
+        </p>
+      </div>
+      <div class="skills-grid reveal">
+        <div class="sk-cat">
+          <div class="sk-header">
+            <div class="sk-icon" style="background:rgba(37,99,235,0.08)">⚛️</div>
+            <span class="sk-name">Frontend</span>
+          </div>
+          <div class="tags">
+            <span class="t tb">React TS</span><span class="t tb">TypeScript</span><span class="t tb">Angular</span><span
+              class="t tb">HTML5</span><span class="t tb">CSS / Sass</span><span class="t tb">Tailwind</span><span
+              class="t tb">Node.js</span><span class="t tb">ASP.NET Razor</span><span class="t tb">XAML</span>
+          </div>
+        </div>
+        <div class="sk-cat">
+          <div class="sk-header">
+            <div class="sk-icon" style="background:rgba(22,163,74,0.08)">🔷</div>
+            <span class="sk-name">Backend</span>
+          </div>
+          <div class="tags">
+            <span class="t tg">.NET / C#</span><span class="t tg">ASP.NET Core</span><span
+              class="t tg">Python</span><span class="t tg">REST API</span><span class="t tg">EF Core</span><span
+              class="t tg">WPF</span><span class="t tg">OOP</span><span class="t tg">RUST</span><span
+              class="t tg">MVVM</span>
+          </div>
+        </div>
+        <div class="sk-cat">
+          <div class="sk-header">
+            <div class="sk-icon" style="background:rgba(13,148,136,0.08)">🏗️</div>
+            <span class="sk-name">BIM / AEC</span>
+          </div>
+          <div class="tags">
+            <span class="t tc">Autodesk APS</span><span class="t tc">Revit API</span><span class="t tc">Navisworks
+              API</span><span class="t tc">IFC Standards</span><span class="t tc">ThatOpen</span><span
+              class="t tc">Dynamo</span><span class="t tc">AutoCAD</span><span class="t tc">SYNCHRO 4D</span><span
+              class="t tc">Primavera P6</span>
+          </div>
+        </div>
+        <div class="sk-cat">
+          <div class="sk-header">
+            <div class="sk-icon" style="background:rgba(99,102,241,0.08)">☁️</div>
+            <span class="sk-name">Cloud / DevOps</span>
+          </div>
+          <div class="tags">
+            <span class="t ti">Azure Services</span><span class="t ti">AKS / K8S</span><span
+              class="t ti">Docker</span><span class="t ti">Harbor</span><span class="t ti">Azure Service Bus</span><span
+              class="t ti">Cosmos DB</span><span class="t ti">Azure AI Foundry</span>
+          </div>
+        </div>
+        <div class="sk-cat">
+          <div class="sk-header">
+            <div class="sk-icon" style="background:rgba(225,29,72,0.06)">🤖</div>
+            <span class="sk-name">Data / AI</span>
+          </div>
+          <div class="tags">
+            <span class="t tp">LLM / LangChain</span><span class="t tp">PySpark</span><span class="t tp">SQL</span><span
+              class="t tp">Oracle DB</span><span class="t tp">MS SQL</span><span class="t tp">Power BI</span><span
+              class="t tp">Microsoft Fabric</span><span class="t tp">DAX</span>
+          </div>
+        </div>
+        <div class="sk-cat">
+          <div class="sk-header">
+            <div class="sk-icon" style="background:rgba(234,88,12,0.08)">🛠️</div>
+            <span class="sk-name">Tools</span>
+          </div>
+          <div class="tags">
+            <span class="t to">Git / GitHub</span><span class="t to">Figma</span><span class="t to">NuGet</span><span
+              class="t to">WebAssembly</span><span class="t to">WebGL</span><span class="t to">Three.js</span><span
+              class="t to">Software Testing</span><span class="t to">Data Structures</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sec-divider" style="margin-top:4rem;"></div>
+  <!-- EXPERIENCE (Modernized) -->
+  <section class="sec" id="experience">
+    <div class="reveal">
+      <p class="sec-label">Career</p>
+      <h2 class="sec-title">Experience</h2>
+      <p class="sec-sub">From construction sites to cloud architecture — a journey through AEC technology.</p>
+    </div>
+    <div class="exp-grid reveal">
+      <!-- Current Role -->
+      <div class="exp-card now">
+        <div class="exp-header">
+          <div class="exp-title-wrapper">
+            <img alt="Saipem Logo" class="exp-logo"
+              src="https://www.google.com/s2/favicons?domain=saipem.com&amp;sz=128" />
+            <div class="exp-title-block">
+              <div class="exp-role">BIM Coordinator / Software Developer</div>
+              <div class="exp-company">SAIPEM Abu Dhabi</div>
+            </div>
+          </div>
+          <div class="exp-meta">
+            <span class="exp-badge-current"><span class="exp-badge-dot"></span> Current</span>
+            <span class="exp-period">12/2025 — Present</span>
+            <span class="exp-loc">📍 Abu Dhabi, UAE</span>
+          </div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-key-metrics">
+            <span class="exp-metric">☁️ Azure AKS</span>
+            <span class="exp-metric green">🚀 .NET 10 Migration</span>
+            <span class="exp-metric red">🤖 AI Foundry</span>
+          </div>
+          <ul class="exp-pts">
+            <li>Led DDC Platform modernization to cloud-native architecture on Azure AKS</li>
+            <li>Spearheaded strategic migration from .NET 8 → .NET 10 across all services</li>
+            <li>Embedded Azure AI Foundry capabilities into BIM pipelines for intelligent automation</li>
+            <li>Engineered RESTful web apps with ASP.NET Core, React &amp; TypeScript for BIM task tracking</li>
+            <li>Built a web-based IFC Editor &amp; Viewer from scratch eliminating desktop software dependency</li>
+            <li>Developed zero-touch PCF → IFC conversion pipeline with geometry merging and sequence automation</li>
+            <li>Invented autonomous Navisworks workflow engine using AI Agents with sequential thinking logic</li>
+            <li>Published internal NuGet ecosystem modularizing PCF parsing, IFC merging, and geometric extraction
+            </li>
+            <li>Deployed enterprise BI solutions with Power BI, Microsoft Fabric, and custom data connectors</li>
+          </ul>
+        </div>
+        <div class="exp-tags">
+          <span class="exp-tag">.NET 10</span>
+          <span class="exp-tag">React</span>
+          <span class="exp-tag">Azure AKS</span>
+          <span class="exp-tag">TypeScript</span>
+          <span class="exp-tag">APS</span>
+          <span class="exp-tag">Navisworks API</span>
+          <span class="exp-tag">Power BI</span>
+        </div>
+      </div>
+      <!-- Previous Role -->
+      <div class="exp-card">
+        <div class="exp-header">
+          <div class="exp-title-wrapper">
+            <img alt="Saipem Logo" class="exp-logo"
+              src="https://www.google.com/s2/favicons?domain=saipem.com&amp;sz=128" />
+            <div class="exp-title-block">
+              <div class="exp-role">BIM Operator / Construction Developer</div>
+              <div class="exp-company">SAIPEM</div>
+            </div>
+          </div>
+          <div class="exp-meta">
+            <span class="exp-period">06/2024 — 11/2025</span>
+            <span class="exp-loc">📍 Remote, Egypt</span>
+          </div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-key-metrics">
+            <span class="exp-metric">💻 DDC Platform</span>
+            <span class="exp-metric green">🗣️ NLQ Tool</span>
+            <span class="exp-metric red">📊 Power BI</span>
+          </div>
+          <ul class="exp-pts">
+            <li>Designed and full-stack developed the proprietary DDC platform (ASP.NET 8 + React/TypeScript on APS)
+            </li>
+            <li>Architected NLQ tool — natural language querying of Oracle and MSSQL databases via chat interface</li>
+            <li>Built comprehensive automation toolkit for BIM data ingestion from SmartPlant 3D, IFC, Tekla, Navisworks
+            </li>
+            <li>Designed and deployed enterprise-level Power BI solutions with custom visuals and connectors</li>
+            <li>Managed performance and scalability of Oracle DB, MSSQL, and Microsoft Fabric data warehouses</li>
+            <li>Led UI/UX design — established Figma component library ensuring cohesive experience across apps</li>
+            <li>Managed end-to-end development lifecycle using Trello and Microsoft Planner</li>
+          </ul>
+        </div>
+        <div class="exp-tags">
+          <span class="exp-tag">ASP.NET 8</span>
+          <span class="exp-tag">React TS</span>
+          <span class="exp-tag">APS</span>
+          <span class="exp-tag">Oracle DB</span>
+          <span class="exp-tag">Figma</span>
+          <span class="exp-tag">Power BI</span>
+        </div>
+      </div>
+      <!-- Atlas -->
+      <div class="exp-card">
+        <div class="exp-header">
+          <div class="exp-title-wrapper">
+            <img alt="Atlas Logo" class="exp-logo" src="atlas_logo.jpg" />
+            <div class="exp-title-block">
+              <div class="exp-role">Technical Office Engineer</div>
+              <div class="exp-company">ATLAS INTEGRATED CONTRACTING</div>
+            </div>
+          </div>
+          <div class="exp-meta">
+            <span class="exp-period">12/2022 — 07/2024</span>
+            <span class="exp-loc">📍 Port Said, Egypt</span>
+          </div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-key-metrics">
+            <span class="exp-metric">🏠 Residential</span>
+            <span class="exp-metric green">📐 Revit</span>
+          </div>
+          <ul class="exp-pts">
+            <li>Managed technical workflows for "Down Town" residential compound</li>
+            <li>Used Revit and Civil 3D for As-Built drawings and precise quantity surveying</li>
+            <li>Designed structural elements with ETABS and SAFE; created shop drawings for Al Habib mosque</li>
+          </ul>
+        </div>
+        <div class="exp-tags">
+          <span class="exp-tag">Revit</span>
+          <span class="exp-tag">Civil 3D</span>
+          <span class="exp-tag">ETABS</span>
+          <span class="exp-tag">SAFE</span>
+        </div>
+      </div>
+      <!-- Military -->
+      <div class="exp-card">
+        <div class="exp-header">
+          <div class="exp-title-wrapper">
+            <img alt="Military Logo" class="exp-logo" src="gyptian Air Defense — Battalion 63 Renovation.png" />
+            <div class="exp-title-block">
+              <div class="exp-role">Site &amp; Technical Engineer (Military Service)</div>
+              <div class="exp-company">Egyptian Air Defense — Battalion 63 Renovation</div>
+            </div>
+          </div>
+          <div class="exp-meta">
+            <span class="exp-period">12/2021 — 12/2022</span>
+            <span class="exp-loc">📍 Egypt</span>
+          </div>
+        </div>
+        <div class="exp-body">
+          <ul class="exp-pts">
+            <li>Led renovation of Battalion 63 facilities</li>
+            <li>Used Revit to generate architectural plans and automated plotting to AutoCAD for site usage</li>
+          </ul>
+        </div>
+        <div class="exp-tags">
+          <span class="exp-tag">Revit</span>
+          <span class="exp-tag">AutoCAD</span>
+        </div>
+      </div>
+      <!-- JV Orascom -->
+      <div class="exp-card">
+        <div class="exp-header">
+          <div class="exp-title-wrapper">
+            <img alt="Orascom Logo" class="exp-logo"
+              src="https://www.google.com/s2/favicons?domain=orascom.com&amp;sz=128" />
+            <div class="exp-title-block">
+              <div class="exp-role">BIM Engineer Trainee &amp; PM Trainee</div>
+              <div class="exp-company">JV Orascom &amp; Arab Contractors — Bahar El-Baqar Treatment Plant</div>
+            </div>
+          </div>
+          <div class="exp-meta">
+            <span class="exp-period">10/2020 — 07/2021</span>
+            <span class="exp-loc">📍 Egypt</span>
+          </div>
+        </div>
+        <div class="exp-body">
+          <ul class="exp-pts">
+            <li>Modeled project buildings and integrated BIM technology and simulation software</li>
+            <li>Created detailed Revit models and performed quantity surveying</li>
+            <li>Developed project schedule using Primavera P6 and MS Project</li>
+          </ul>
+        </div>
+        <div class="exp-tags">
+          <span class="exp-tag">Revit</span>
+          <span class="exp-tag">Primavera P6</span>
+          <span class="exp-tag">MS Project</span>
+        </div>
+      </div>
+      <!-- Suez Canal Authority -->
+      <div class="exp-card">
+        <div class="exp-header">
+          <div class="exp-title-wrapper">
+            <img alt="SCA Logo" class="exp-logo"
+              onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 64 64\'%3E%3Crect width=\'64\' height=\'64\' rx=\'12\' fill=\'%230e7490\'/%3E%3Cpath d=\'M16 48 Q32 32 48 48\' fill=\'none\' stroke=\'white\' stroke-width=\'4\'/%3E%3Cpath d=\'M16 36 Q32 20 48 36\' fill=\'none\' stroke=\'white\' stroke-width=\'4\'/%3E%3C/svg%3E'"
+              src="https://www.google.com/s2/favicons?domain=suezcanal.gov.eg&amp;sz=128" />
+            <div class="exp-title-block">
+              <div class="exp-role">Site Engineering Trainee / Civil Engineering Trainee</div>
+              <div class="exp-company">SUEZ CANAL AUTHORITY</div>
+            </div>
+          </div>
+          <div class="exp-meta">
+            <span class="exp-period">07/2019 — 09/2019</span>
+            <span class="exp-loc">📍 Port Said, Egypt</span>
+          </div>
+        </div>
+        <div class="exp-body">
+          <ul class="exp-pts">
+            <li>Water Infrastructure: Participated in operational training at the Port Said water clarification plant
+              and the Port of Said.</li>
+            <li>Facility Maintenance: Supported site supervision and structural maintenance protocols for buildings
+              located in Port Fouad.</li>
+            <li>Site Supervision: Gained hands-on civil engineering and site management experience under the direct
+              instruction and supervision of the Suez Canal Authority.</li>
+          </ul>
+        </div>
+        <div class="exp-tags">
+          <span class="exp-tag">Civil Engineering</span>
+          <span class="exp-tag">Water Infrastructure</span>
+          <span class="exp-tag">Site Supervision</span>
+        </div>
+      </div>
+      <!-- Karawia Contractor -->
+      <div class="exp-card">
+        <div class="exp-header">
+          <div class="exp-title-wrapper">
+            <img alt="Ministry of Housing Logo" class="exp-logo"
+              onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 64 64\'%3E%3Crect width=\'64\' height=\'64\' rx=\'12\' fill=\'%23b45309\'/%3E%3Cpath d=\'M32 16 L16 32 L48 32 Z M16 48 L48 48 L48 36 L16 36 Z\' fill=\'none\' stroke=\'white\' stroke-width=\'4\'/%3E%3C/svg%3E'"
+              src="https://www.google.com/s2/favicons?domain=mhuc.gov.eg&amp;sz=128" />
+            <div class="exp-title-block">
+              <div class="exp-role">Site Engineering Trainee</div>
+              <div class="exp-company">KARAWIA CONTRACTOR (Ministry of Housing)</div>
+            </div>
+          </div>
+          <div class="exp-meta">
+            <span class="exp-period">07/2018 — 08/2019</span>
+            <span class="exp-loc">📍 Port Said, Egypt</span>
+          </div>
+        </div>
+        <div class="exp-body">
+          <ul class="exp-pts">
+            <li>Large-Scale Residential Construction: Contributed to the execution of a massive housing project in East
+              Port Said comprising 9,000 residential buildings in Port Fuad.</li>
+            <li>End-to-End Site Execution: Supported and monitored construction phases from the initial foundation work
+              through to final ceiling structural execution and architectural finishing.</li>
+          </ul>
+        </div>
+        <div class="exp-tags">
+          <span class="exp-tag">Residential Construction</span>
+          <span class="exp-tag">Site Execution</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="sec-divider"></div>
+  <!-- PROJECTS -->
+  <section class="sec" id="projects">
+    <div class="reveal">
+      <p class="sec-label">Work</p>
+      <h2 class="sec-title">Projects</h2>
+      <p class="sec-sub">Production-grade systems across BIM automation, cloud architecture, and AI integration.</p>
+    </div>
+    <div class="proj-filters reveal">
+      <button class="f-btn active" data-filter="all">All</button>
+      <button class="f-btn" data-filter="bim">BIM / AEC</button>
+      <button class="f-btn" data-filter="cloud">Cloud</button>
+      <button class="f-btn" data-filter="ai">AI</button>
+      <button class="f-btn" data-filter="fs">Full Stack</button>
+      <button class="f-btn" data-filter="dt">Desktop / WASM</button>
+    </div>
+    <div class="proj-grid reveal">
+      <a class="proj-card" data-cats="fs bim cloud" href="project-details.html?id=ddc-tasks-manager"
+        style="text-decoration: none; color: inherit;">
+        <div class="proj-top-bar"></div>
+        <div class="proj-body">
+          <div class="proj-header">
+            <div style="display:flex; align-items:center; gap:0.6rem;">
+              <span class="p-cat cat-fs">Full Stack</span>
+              <span class="sk-name" style="font-size:.75rem; color:var(--text2);">SAIPEM</span>
+            </div>
+            <div class="proj-impact">
+              <div class="impact-val">Task</div>
+              <div class="impact-lbl">Platform</div>
+            </div>
+          </div>
+          <div class="p-title">DDC Tasks Manager</div>
+          <div class="p-role">Fullstack Developer Lead</div>
+          <div class="p-desc">Enterprise-grade task and workload management platform streamlining project coordination
+            with Kanban boards, analytics, and seamless Autodesk Platform Services (APS) integration.</div>
+          <div class="proj-footer">
+            <div class="p-tech">
+              <span class="p-tag">React</span><span class="p-tag">Node.js</span><span class="p-tag">MongoDB</span><span
+                class="p-tag">Vite</span><span class="p-tag">APS</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a class="proj-card" data-cats="bim fs" href="project-details.html?id=bim-toolkit"
+        style="text-decoration: none; color: inherit;">
+        <div class="proj-top-bar"></div>
+        <div class="proj-body">
+          <div class="proj-header">
+            <div style="display:flex; align-items:center; gap:0.6rem;">
+              <span class="p-cat cat-bim">BIM / AEC</span>
+              <span class="sk-name" style="font-size:.75rem; color:var(--text2);">SAIPEM</span>
+            </div>
+            <div class="proj-impact">
+              <div class="impact-val">WASM</div>
+              <div class="impact-lbl">BIM Parsing</div>
+            </div>
+          </div>
+          <div class="p-title">BIM Toolkit</div>
+          <div class="p-role">Full Stack Developer</div>
+          <div class="p-desc">Comprehensive web-based BIM platform to parse, manipulate, and visualize 3D engineering
+            models with real-time processing and heavy IFC/PCF utilities.</div>
+          <div class="proj-footer">
+            <div class="p-tech">
+              <span class="p-tag">C#</span><span class="p-tag">.NET Core</span><span class="p-tag">React</span><span
+                class="p-tag">SignalR</span><span class="p-tag">WASM</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a class="proj-card" data-cats="dt bim"
+        href="project-details.html?id=autospool-automated-piping-spool-generation-engine"
+        style="text-decoration: none; color: inherit;">
+        <div class="proj-top-bar"></div>
+        <div class="proj-body">
+          <div class="proj-header">
+            <div style="display:flex; align-items:center; gap:0.6rem;">
+              <span class="p-cat cat-dt">Desktop / WASM</span>
+              <span class="sk-name" style="font-size:.75rem; color:var(--text2);">SAIPEM</span>
+            </div>
+            <div class="proj-impact">
+              <div class="impact-val">O(1)</div>
+              <div class="impact-lbl">Graph Routing</div>
+            </div>
+          </div>
+          <div class="p-title">AutoSpool Engine</div>
+          <div class="p-role">Lead Software Engineer</div>
+          <div class="p-desc">High-performance piping spool generation engine that parses PCF files into optimized
+            spools utilizing spatial hashing and graph-based topology.</div>
+          <div class="proj-footer">
+            <div class="p-tech">
+              <span class="p-tag">C#</span><span class="p-tag">.NET 8</span><span class="p-tag">WPF</span><span
+                class="p-tag">Graph Theory</span><span class="p-tag">3D Geo</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a class="proj-card" data-cats="bim"
+        href="project-details.html?id=ifc-manager-application-autonomous-pcf-to-ifc-transformation-engine"
+        style="text-decoration: none; color: inherit;">
+        <div class="proj-top-bar"></div>
+        <div class="proj-body">
+          <div class="proj-header">
+            <div style="display:flex; align-items:center; gap:0.6rem;">
+              <span class="p-cat cat-bim">BIM / AEC</span>
+              <span class="sk-name" style="font-size:.75rem; color:var(--text2);">SAIPEM</span>
+            </div>
+            <div class="proj-impact">
+              <div class="impact-val">80%</div>
+              <div class="impact-lbl">Time Saved</div>
+            </div>
+          </div>
+          <div class="p-title">IFC Manager Application</div>
+          <div class="p-role">Backend Developer &amp; Algorithm Engineer</div>
+          <div class="p-desc">The IFC Manager is a robust Windows desktop toolkit designed for BIM managers to
+            seamlessly process, validate, and manipulate IFC models according to Saipem's strict project protocols.
+          </div>
+          <div class="proj-footer">
+            <div class="p-tech">
+              <span class="p-tag">C#</span><span class="p-tag">ASP.NET Core</span><span class="p-tag">IFC
+                Standards</span><span class="p-tag">PCF Protocol</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a class="proj-card" data-cats="cloud fs bim"
+        href="project-details.html?id=saipem-data-driven-construction-ddc-platform"
+        style="text-decoration: none; color: inherit;">
+        <div class="proj-top-bar"></div>
+        <div class="proj-body">
+          <div class="proj-header">
+            <div style="display:flex; align-items:center; gap:0.6rem;">
+              <span class="p-cat cat-cloud">Cloud</span>
+              <span class="sk-name" style="font-size:.75rem; color:var(--text2);">SAIPEM</span>
+            </div>
+            <div class="proj-impact">
+              <div class="impact-val">★</div>
+              <div class="impact-lbl">Lead Architect</div>
+            </div>
+          </div>
+          <div class="p-title">Saipem Data-Driven Construction (DDC) Platform</div>
+          <div class="p-role">Lead Architect &amp; Full-Stack Developer</div>
+          <div class="p-desc">The Data-Driven Construction (DDC) Platform serves as Saipem's primary enterprise
+            intelligence system. It brings together BIM data, project metrics, and advanced analytics in a centralized
+            ecosystem designed to manage multiple simultaneous megaprojects.</div>
+          <div class="proj-footer">
+            <div class="p-tech">
+              <span class="p-tag">.NET 10</span><span class="p-tag">React TS</span><span class="p-tag">Azure
+                AKS</span><span class="p-tag">Cosmos DB</span><span class="p-tag">APS</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a class="proj-card" data-cats="bim" href="project-details.html?id=web-based-bim-editor-viewer"
+        style="text-decoration: none; color: inherit;">
+        <div class="proj-top-bar"></div>
+        <div class="proj-body">
+          <div class="proj-header">
+            <div style="display:flex; align-items:center; gap:0.6rem;">
+              <span class="p-cat cat-bim">BIM / AEC</span>
+              <span class="sk-name" style="font-size:.75rem; color:var(--text2);">SAIPEM</span>
+            </div>
+            <div class="proj-impact">
+              <div class="impact-val">0</div>
+              <div class="impact-lbl">Desktop Deps</div>
+            </div>
+          </div>
+          <div class="p-title">Web-Based IFC 3D Viewer</div>
+          <div class="p-role">Lead Developer / Front-End Engineer</div>
+          <div class="p-desc">Designed and developed a high-performance web application tailored for the visualization
+            and manipulation of BIM (Building Information Modeling) models using the Industry Foundation Classes (IFC)
+            standard.</div>
+          <div class="proj-footer">
+            <div class="p-tech">
+              <span class="p-tag">JavaScript</span><span class="p-tag">Vite</span><span
+                class="p-tag">Three.js</span><span class="p-tag">@thatopen</span><span class="p-tag">web-ifc</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a class="proj-card" data-cats="ai bim"
+        href="project-details.html?id=autonavis-autospool-automation-tools-ai-orchestrated-navisworks-automation"
+        style="text-decoration: none; color: inherit;">
+        <div class="proj-top-bar"></div>
+        <div class="proj-body">
+          <div class="proj-header">
+            <div style="display:flex; align-items:center; gap:0.6rem;">
+              <span class="p-cat cat-ai">AI</span>
+              <span class="sk-name" style="font-size:.75rem; color:var(--text2);">SAIPEM</span>
+            </div>
+            <div class="proj-impact">
+              <div class="impact-val">Days→Hrs</div>
+              <div class="impact-lbl">Task Speed</div>
+            </div>
+          </div>
+          <div class="p-title">AutoNavis &amp; AutoSpool Automation Tools</div>
+          <div class="p-role">Lead AI &amp; Automation Engineer</div>
+          <div class="p-desc">Developed two highly specialized plugins for Autodesk Navisworks to streamline and
+            automate complex BIM data workflows specifically within structural and piping disciplines at Saipem.</div>
+          <div class="proj-footer">
+            <div class="p-tech">
+              <span class="p-tag">.NET</span><span class="p-tag">Navisworks API</span><span class="p-tag">Azure AI
+                Foundry</span><span class="p-tag">Sequential Agents</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a class="proj-card" data-cats="ai"
+        href="project-details.html?id=chat-ddc-ask-db-ai-ask-table-ai-conversational-database-interface"
+        style="text-decoration: none; color: inherit;">
+        <div class="proj-top-bar"></div>
+        <div class="proj-body">
+          <div class="proj-header">
+            <div style="display:flex; align-items:center; gap:0.6rem;">
+              <span class="p-cat cat-ai">AI</span>
+              <span class="sk-name" style="font-size:.75rem; color:var(--text2);">SAIPEM</span>
+            </div>
+            <div class="proj-impact">
+              <div class="impact-val">NLQ</div>
+              <div class="impact-lbl">No SQL Needed</div>
+            </div>
+          </div>
+          <div class="p-title">Chat DDC (Ask DB AI / Ask Table AI)</div>
+          <div class="p-role">Lead AI Integration Specialist</div>
+          <div class="p-desc">Chat DDC provides an AI-driven, natural language interface that allows construction
+            stakeholders to directly interrogate project databases without requiring any SQL knowledge.</div>
+          <div class="proj-footer">
+            <div class="p-tech">
+              <span class="p-tag">Azure OpenAI</span><span class="p-tag">SQL Server</span><span class="p-tag">Oracle
+                DB</span><span class="p-tag">Python/C#</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a class="proj-card" data-cats="bim"
+        href="project-details.html?id=ifc-data-processing-library-suite-proprietary-bim-nuget-ecosystem"
+        style="text-decoration: none; color: inherit;">
+        <div class="proj-top-bar"></div>
+        <div class="proj-body">
+          <div class="proj-header">
+            <div style="display:flex; align-items:center; gap:0.6rem;">
+              <span class="p-cat cat-bim">BIM / AEC</span>
+              <span class="sk-name" style="font-size:.75rem; color:var(--text2);">SAIPEM</span>
+            </div>
+            <div class="proj-impact">
+              <div class="impact-val">Lib</div>
+              <div class="impact-lbl">NuGet Suite</div>
+            </div>
+          </div>
+          <div class="p-title">IFC Data Processing Library Suite & NuGet Ecosystem</div>
+          <div class="p-role">Library Creator &amp; Maintainer</div>
+          <div class="p-desc">A comprehensive collection of cross-platform libraries engineered for processing Industry
+            Foundation Classes (IFC) data, deployed as open-source packages across NuGet, npm, and other registries.
+          </div>
+          <div class="proj-footer">
+            <div class="p-tech">
+              <span class="p-tag">.NET Standard</span><span class="p-tag">NuGet</span><span
+                class="p-tag">IFC</span><span class="p-tag">C#</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a class="proj-card" data-cats="cloud"
+        href="project-details.html?id=power-bi-aps-viewer-data-connectors-enterprise-bi-architecture"
+        style="text-decoration: none; color: inherit;">
+        <div class="proj-top-bar"></div>
+        <div class="proj-body">
+          <div class="proj-header">
+            <div style="display:flex; align-items:center; gap:0.6rem;">
+              <span class="p-cat cat-cloud">Cloud</span>
+              <span class="sk-name" style="font-size:.75rem; color:var(--text2);">SAIPEM</span>
+            </div>
+            <div class="proj-impact">
+              <div class="impact-val">RT</div>
+              <div class="impact-lbl">Real-Time BI</div>
+            </div>
+          </div>
+          <div class="p-title">Power BI APS Viewer &amp; Data Connectors</div>
+          <div class="p-role">BI Developer &amp; Data Engineer</div>
+          <div class="p-desc">Engineered a suite of custom Power BI visual components that seamlessly connect 3D BIM
+            models with high-level business intelligence dashboards, delivering powerful cross-filtering between spatial
+            objects and tabular datasets.</div>
+          <div class="proj-footer">
+            <div class="p-tech">
+              <span class="p-tag">Power BI</span><span class="p-tag">Microsoft Fabric</span><span
+                class="p-tag">DAX</span><span class="p-tag">Oracle DB</span><span class="p-tag">MSSQL</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a class="proj-card" data-cats="ai" href="project-details.html?id=llama-3-business-conversational-agent"
+        style="text-decoration: none; color: inherit;">
+        <div class="proj-top-bar"></div>
+        <div class="proj-body">
+          <div class="proj-header">
+            <div style="display:flex; align-items:center; gap:0.6rem;">
+              <span class="p-cat cat-ai">AI</span>
+              <span class="sk-name" style="font-size:.75rem; color:var(--text2);">Personal &amp; Freelance</span>
+            </div>
+            <div class="proj-impact">
+              <div class="impact-val">RAG</div>
+              <div class="impact-lbl">Context-Aware</div>
+            </div>
+          </div>
+          <div class="p-title">Llama 3 Business Conversational Agent</div>
+          <div class="p-role">Lead AI Developer</div>
+          <div class="p-desc">Context-aware chatbot for business collaboration using conversational memory and RAG via
+            Embedchain. The Llama 3 model retains context across long sessions and provides accurate, domain-specific
+            responses.</div>
+          <div class="proj-footer">
+            <div class="p-tech">
+              <span class="p-tag">Python</span><span class="p-tag">Llama 3</span><span
+                class="p-tag">Embedchain</span><span class="p-tag">Vector DB</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a class="proj-card" data-cats="bim" href="project-details.html?id=construction-management-graduation-project"
+        style="text-decoration: none; color: inherit;">
+        <div class="proj-top-bar"></div>
+        <div class="proj-body">
+          <div class="proj-header">
+            <div style="display:flex; align-items:center; gap:0.6rem;">
+              <span class="p-cat cat-bim">BIM / AEC</span>
+              <span class="sk-name" style="font-size:.75rem; color:var(--text2);">Personal &amp; Freelance</span>
+            </div>
+            <div class="proj-impact">
+              <div class="impact-val">4D</div>
+              <div class="impact-lbl">Project Planning</div>
+            </div>
+          </div>
+          <div class="p-title">Construction Management Graduation Project</div>
+          <div class="p-role">Project Manager / BIM Modeler</div>
+          <div class="p-desc">A comprehensive academic showcase applying advanced project management methodologies to a
+            major national wastewater treatment facility handling massive capacities in Egypt.</div>
+          <div class="proj-footer">
+            <div class="p-tech">
+              <span class="p-tag">BIM</span><span class="p-tag">Navisworks</span><span class="p-tag">Primavera
+                P6</span><span class="p-tag">Power BI</span><span class="p-tag">MS Project</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a class="proj-card" data-cats="fs" href="project-details.html?id=angular-clips-video-processing-platform"
+        style="text-decoration: none; color: inherit;">
+        <div class="proj-top-bar"></div>
+        <div class="proj-body">
+          <div class="proj-header">
+            <div style="display:flex; align-items:center; gap:0.6rem;">
+              <span class="p-cat cat-fs">Full Stack</span>
+              <span class="sk-name" style="font-size:.75rem; color:var(--text2);">Personal &amp; Freelance</span>
+            </div>
+            <div class="proj-impact">
+              <div class="impact-val">WASM</div>
+              <div class="impact-lbl">Client Processing</div>
+            </div>
+          </div>
+          <div class="p-title">Angular-Clips (Video Streaming & Management Platform)</div>
+          <div class="p-role">Full-Stack Architect</div>
+          <div class="p-desc">Developed a full-stack, server-side rendered (SSR) video upload and streaming application using Angular 17 and Firebase. The platform allows users to securely authenticate, drop-and-upload video clips, autogenerate thumbnails, and manage their content via a dedicated dashboard.</div>
+          <div class="proj-footer">
+            <div class="p-tech">
+              <span class="p-tag">Angular 17</span><span class="p-tag">RxJS</span><span
+                class="p-tag">Firebase</span><span class="p-tag">WASM</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a class="proj-card" data-cats="dt" href="project-details.html?id=wasm-image-effects-engine"
+        style="text-decoration: none; color: inherit;">
+        <div class="proj-top-bar"></div>
+        <div class="proj-body">
+          <div class="proj-header">
+            <div style="display:flex; align-items:center; gap:0.6rem;">
+              <span class="p-cat cat-dt">WASM</span>
+              <span class="sk-name" style="font-size:.75rem; color:var(--text2);">Personal &amp; Freelance</span>
+            </div>
+            <div class="proj-impact">
+              <div class="impact-val">Rust</div>
+              <div class="impact-lbl">Native Speed</div>
+            </div>
+          </div>
+          <div class="p-title">Image Processing Web Application (Rust & WebAssembly)</div>
+          <div class="p-role">Rust & WebAssembly Engineer</div>
+          <div class="p-desc">Developed a high-performance web-based image editor leveraging WebAssembly (WASM) to perform computationally intensive image processing directly in the browser. Deployed on Vercel.</div>
+          <div class="proj-footer">
+            <div class="p-tech">
+              <span class="p-tag">Rust</span><span class="p-tag">WebAssembly</span><span
+                class="p-tag">Webpack</span><span class="p-tag">JavaScript</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a class="proj-card" data-cats="cloud fs" href="project-details.html?id=mango-microservices-commerce-system"
+        style="text-decoration: none; color: inherit;">
+        <div class="proj-top-bar"></div>
+        <div class="proj-body">
+          <div class="proj-header">
+            <div style="display:flex; align-items:center; gap:0.6rem;">
+              <span class="p-cat cat-cloud">Cloud</span>
+              <span class="sk-name" style="font-size:.75rem; color:var(--text2);">Personal &amp; Freelance</span>
+            </div>
+            <div class="proj-impact">
+              <div class="impact-val">μSVC</div>
+              <div class="impact-lbl">Microservices</div>
+            </div>
+          </div>
+          <div class="p-title">E-Commerce Microservices Application</div>
+          <div class="p-role">Full Stack .NET Developer (Personal Project)</div>
+          <div class="p-desc">Scalable, full-stack e-commerce platform built from the ground up using isolated
+            microservices. Integrates Azure Service Bus for pub/sub messaging and Stripe for secure payments.</div>
+          <div class="proj-footer">
+            <div class="p-tech">
+              <span class="p-tag">.NET 8</span><span class="p-tag">Microservices</span><span class="p-tag">Azure Service
+                Bus</span><span class="p-tag">EF Core</span><span class="p-tag">Stripe</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a class="proj-card" data-cats="bim dt" href="project-details.html?id=revit-automation-plastering-extension"
+        style="text-decoration: none; color: inherit;">
+        <div class="proj-top-bar"></div>
+        <div class="proj-body">
+          <div class="proj-header">
+            <div style="display:flex; align-items:center; gap:0.6rem;">
+              <span class="p-cat cat-bim">BIM / AEC</span>
+              <span class="sk-name" style="font-size:.75rem; color:var(--text2);">ATLAS</span>
+            </div>
+            <div class="proj-impact">
+              <div class="impact-val">Auto</div>
+              <div class="impact-lbl">Revit Plugin</div>
+            </div>
+          </div>
+          <div class="p-title">Revit Automation: Plastering Extension</div>
+          <div class="p-role">BIM Tool Developer</div>
+          <div class="p-desc">Custom Revit extension automating wall finish modeling. Algorithmically detects room
+            boundaries and generates plastering layers, eliminating repetitive manual work for BIM modelers.</div>
+          <div class="proj-footer">
+            <div class="p-tech">
+              <span class="p-tag">C#</span><span class="p-tag">Autodesk Revit API</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a class="proj-card" data-cats="dt" href="project-details.html?id=wpf-mvvm-architecture-suite"
+        style="text-decoration: none; color: inherit;">
+        <div class="proj-top-bar"></div>
+        <div class="proj-body">
+          <div class="proj-header">
+            <div style="display:flex; align-items:center; gap:0.6rem;">
+              <span class="p-cat cat-dt">Desktop</span>
+              <span class="sk-name" style="font-size:.75rem; color:var(--text2);">ATLAS</span>
+            </div>
+            <div class="proj-impact">
+              <div class="impact-val">UI/UX</div>
+              <div class="impact-lbl">Cross-Platform</div>
+            </div>
+          </div>
+          <div class="p-title">WPF &amp; MVVM Architecture Suite</div>
+          <div class="p-role">Architectural Lead &amp; Software Engineer</div>
+          <div class="p-desc">Utilizing WPF and MVVM capabilities to build robust desktop applications, Autodesk plugins
+            with intuitive UIs, and modern web applications with clean separated architectures.</div>
+          <div class="proj-footer">
+            <div class="p-tech">
+              <span class="p-tag">C#</span><span class="p-tag">WPF</span><span class="p-tag">MVVM</span><span
+                class="p-tag">Autodesk API</span><span class="p-tag">XAML</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a class="proj-card" data-cats="fs" href="project-details.html?id=hotel-listing-restful-api"
+        style="text-decoration: none; color: inherit;">
+        <div class="proj-top-bar"></div>
+        <div class="proj-body">
+          <div class="proj-header">
+            <div style="display:flex; align-items:center; gap:0.6rem;">
+              <span class="p-cat cat-fs">Full Stack</span>
+              <span class="sk-name" style="font-size:.75rem; color:var(--text2);">Personal &amp; Freelance</span>
+            </div>
+            <div class="proj-impact">
+              <div class="impact-val">API</div>
+              <div class="impact-lbl">Redis Cached</div>
+            </div>
+          </div>
+          <div class="p-title">Hotel Listing RESTful API</div>
+          <div class="p-role">Lead API Developer</div>
+          <div class="p-desc">Robust RESTful API for hotel management with advanced performance optimizations using
+            response caching to minimize load times. Entity Framework Core with MySQL for efficient data handling.</div>
+          <div class="proj-footer">
+            <div class="p-tech">
+              <span class="p-tag">.NET Core</span><span class="p-tag">EF Core</span><span
+                class="p-tag">MySQL</span><span class="p-tag">Redis</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+  <div class="sec-divider"></div>
+  <!-- EDUCATION -->
+  <section class="sec" id="education">
+    <div class="reveal">
+      <p class="sec-label">Learning</p>
+      <h2 class="sec-title">Education &amp; Certifications</h2>
+      <p class="sec-sub">Academic foundation in engineering combined with continuous learning in software and AI.</p>
+    </div>
+    <div class="edu-grid reveal">
+      <!-- Education Row -->
+      <div class="edu-row">
+        <div class="edu-card">
+          <div class="edu-icon">🎓</div>
+          <div class="edu-deg">Bachelor of Engineering — Civil Engineering</div>
+          <div class="edu-school">Faculty of Engineering, Port Said University</div>
+          <div class="edu-year">2021 · Port Said, Egypt</div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-icon">🌍</div>
+          <div class="edu-deg">Languages</div>
+          <div style="margin-top:.85rem;display:flex;flex-direction:column;gap:.85rem;">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.4rem;">
+                <span style="font-size:.84rem;font-weight:600;color:var(--text1);">English</span>
+                <span
+                  style="font-size:.7rem;color:var(--text3);font-family:'JetBrains Mono',monospace;">Professional</span>
+              </div>
+              <div style="height:4px;background:rgba(0,0,0,0.04);border-radius:10px;overflow:hidden;">
+                <div
+                  style="height:100%;width:85%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:10px;box-shadow:0 0 8px rgba(37,99,235,0.3);">
+                </div>
+              </div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.4rem;">
+                <span style="font-size:.84rem;font-weight:600;color:var(--text1);">Arabic</span>
+                <span style="font-size:.7rem;color:var(--text3);font-family:'JetBrains Mono',monospace;">Native</span>
+              </div>
+              <div style="height:4px;background:rgba(0,0,0,0.04);border-radius:10px;overflow:hidden;">
+                <div
+                  style="height:100%;width:100%;background:linear-gradient(90deg,var(--accent2),var(--accent3));border-radius:10px;box-shadow:0 0 8px rgba(13,148,136,0.3);">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Certifications Grid -->
+      <div>
+        <p class="certs-label">Certifications &amp; Courses</p>
+        <div class="certs-grid">
+          <a class="cert-card" rel="noopener" target="_blank">
+            <div class="cert-card-top">
+              <div class="cert-icon red"><img alt="ITI"
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23c4161c'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial,sans-serif' font-weight='800' font-size='24' fill='white'%3EITI%3C/text%3E%3C/svg%3E" />
+              </div>
+              <svg class="cert-link-icon" fill="none" height="14" stroke="currentColor" stroke-width="2"
+                viewbox="0 0 24 24" width="14">
+                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" x2="21" y1="14" y2="3"></line>
+              </svg>
+            </div>
+            <div class="cert-name">BIM Automation Developer Specialization</div>
+            <div class="cert-footer">
+              <span class="cert-source iti">ITI</span>
+              <span class="cert-category">BIM / AEC</span>
+            </div>
+          </a>
+          <a class="cert-card" href="https://www.udemy.com/" rel="noopener" target="_blank">
+            <div class="cert-card-top">
+              <div class="cert-icon purple"><img alt="Udemy" src="https://cdn.simpleicons.org/udemy/A435F0" /></div>
+              <svg class="cert-link-icon" fill="none" height="14" stroke="currentColor" stroke-width="2"
+                viewbox="0 0 24 24" width="14">
+                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" x2="21" y1="14" y2="3"></line>
+              </svg>
+            </div>
+            <div class="cert-name">Model Context Protocol: Agentic AI</div>
+            <div class="cert-footer">
+              <span class="cert-source udemy">Udemy</span>
+              <span class="cert-category">AI / ML</span>
+            </div>
+          </a>
+          <a class="cert-card" href="https://www.deeplearning.ai/" rel="noopener" target="_blank">
+            <div class="cert-card-top">
+              <div class="cert-icon green"><img alt="DeepLearning.AI"
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230056D2'/%3E%3Ctext x='32' y='34' text-anchor='middle' font-family='Arial,sans-serif' font-weight='800' font-size='18' fill='white'%3EDL%3C/text%3E%3Ctext x='32' y='49' text-anchor='middle' font-family='Arial,sans-serif' font-weight='700' font-size='14' fill='%2399CCFF'%3E.AI%3C/text%3E%3C/svg%3E" />
+              </div>
+              <svg class="cert-link-icon" fill="none" height="14" stroke="currentColor" stroke-width="2"
+                viewbox="0 0 24 24" width="14">
+                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" x2="21" y1="14" y2="3"></line>
+              </svg>
+            </div>
+            <div class="cert-name">Generative AI &amp; LLMs: Architecture</div>
+            <div class="cert-footer">
+              <span class="cert-source deeplearning">DeepLearning.AI</span>
+              <span class="cert-category">AI / ML</span>
+            </div>
+          </a>
+          <a class="cert-card" href="https://www.udemy.com/" rel="noopener" target="_blank">
+            <div class="cert-card-top">
+              <div class="cert-icon purple"><img alt="Udemy" src="https://cdn.simpleicons.org/udemy/A435F0" /></div>
+              <svg class="cert-link-icon" fill="none" height="14" stroke="currentColor" stroke-width="2"
+                viewbox="0 0 24 24" width="14">
+                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" x2="21" y1="14" y2="3"></line>
+              </svg>
+            </div>
+            <div class="cert-name">LangChain for LLM Development</div>
+            <div class="cert-footer">
+              <span class="cert-source udemy">Udemy</span>
+              <span class="cert-category">AI / ML</span>
+            </div>
+          </a>
+          <a class="cert-card" href="https://www.coursera.org/learn/machine-learning" rel="noopener" target="_blank">
+            <div class="cert-card-top">
+              <div class="cert-icon blue"><img alt="Coursera" src="https://cdn.simpleicons.org/coursera/0056D2" /></div>
+              <svg class="cert-link-icon" fill="none" height="14" stroke="currentColor" stroke-width="2"
+                viewbox="0 0 24 24" width="14">
+                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" x2="21" y1="14" y2="3"></line>
+              </svg>
+            </div>
+            <div class="cert-name">Supervised Machine Learning</div>
+            <div class="cert-footer">
+              <span class="cert-source coursera">Coursera</span>
+              <span class="cert-category">AI / ML</span>
+            </div>
+          </a>
+          <a class="cert-card" href="https://www.deeplearning.ai/" rel="noopener" target="_blank">
+            <div class="cert-card-top">
+              <div class="cert-icon green"><img alt="DeepLearning.AI"
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230056D2'/%3E%3Ctext x='32' y='34' text-anchor='middle' font-family='Arial,sans-serif' font-weight='800' font-size='18' fill='white'%3EDL%3C/text%3E%3Ctext x='32' y='49' text-anchor='middle' font-family='Arial,sans-serif' font-weight='700' font-size='14' fill='%2399CCFF'%3E.AI%3C/text%3E%3C/svg%3E" />
+              </div>
+              <svg class="cert-link-icon" fill="none" height="14" stroke="currentColor" stroke-width="2"
+                viewbox="0 0 24 24" width="14">
+                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" x2="21" y1="14" y2="3"></line>
+              </svg>
+            </div>
+            <div class="cert-name">LLaMa for Developers</div>
+            <div class="cert-footer">
+              <span class="cert-source deeplearning">DeepLearning.AI</span>
+              <span class="cert-category">AI / ML</span>
+            </div>
+          </a>
+          <a class="cert-card" href="https://www.linkedin.com/learning/" rel="noopener" target="_blank">
+            <div class="cert-card-top">
+              <div class="cert-icon green"><img alt="LinkedIn Learning"
+                  src="https://cdn.simpleicons.org/linkedin/0A66C2" /></div>
+              <svg class="cert-link-icon" fill="none" height="14" stroke="currentColor" stroke-width="2"
+                viewbox="0 0 24 24" width="14">
+                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" x2="21" y1="14" y2="3"></line>
+              </svg>
+            </div>
+            <div class="cert-name">Hugging Face Transformers</div>
+            <div class="cert-footer">
+              <span class="cert-source linkedin">LinkedIn</span>
+              <span class="cert-category">AI / ML</span>
+            </div>
+          </a>
+          <a class="cert-card" href="https://www.linkedin.com/learning/" rel="noopener" target="_blank">
+            <div class="cert-card-top">
+              <div class="cert-icon blue"><img alt="LinkedIn Learning"
+                  src="https://cdn.simpleicons.org/linkedin/0A66C2" /></div>
+              <svg class="cert-link-icon" fill="none" height="14" stroke="currentColor" stroke-width="2"
+                viewbox="0 0 24 24" width="14">
+                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" x2="21" y1="14" y2="3"></line>
+              </svg>
+            </div>
+            <div class="cert-name">Python Parallel &amp; Concurrent Programming</div>
+            <div class="cert-footer">
+              <span class="cert-source linkedin">LinkedIn</span>
+              <span class="cert-category">Backend</span>
+            </div>
+          </a>
+          <a class="cert-card" href="https://www.coursera.org/learn/react-basics" rel="noopener" target="_blank">
+            <div class="cert-card-top">
+              <div class="cert-icon blue"><img alt="Coursera" src="https://cdn.simpleicons.org/coursera/0056D2" /></div>
+              <svg class="cert-link-icon" fill="none" height="14" stroke="currentColor" stroke-width="2"
+                viewbox="0 0 24 24" width="14">
+                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" x2="21" y1="14" y2="3"></line>
+              </svg>
+            </div>
+            <div class="cert-name">React Basics — Meta</div>
+            <div class="cert-footer">
+              <span class="cert-source coursera">Coursera · Meta</span>
+              <span class="cert-category">Frontend</span>
+            </div>
+          </a>
+          <a class="cert-card" href="https://www.udemy.com/" rel="noopener" target="_blank">
+            <div class="cert-card-top">
+              <div class="cert-icon orange"><img alt="Udemy" src="https://cdn.simpleicons.org/udemy/A435F0" /></div>
+              <svg class="cert-link-icon" fill="none" height="14" stroke="currentColor" stroke-width="2"
+                viewbox="0 0 24 24" width="14">
+                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" x2="21" y1="14" y2="3"></line>
+              </svg>
+            </div>
+            <div class="cert-name">Complete Angular Developer 2024</div>
+            <div class="cert-footer">
+              <span class="cert-source ztm">ZTM · Udemy</span>
+              <span class="cert-category">Frontend</span>
+            </div>
+          </a>
+          <a class="cert-card" href="https://www.udemy.com/" rel="noopener" target="_blank">
+            <div class="cert-card-top">
+              <div class="cert-icon blue"><img alt="Udemy" src="https://cdn.simpleicons.org/udemy/A435F0" /></div>
+              <svg class="cert-link-icon" fill="none" height="14" stroke="currentColor" stroke-width="2"
+                viewbox="0 0 24 24" width="14">
+                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" x2="21" y1="14" y2="3"></line>
+              </svg>
+            </div>
+            <div class="cert-name">.NET Core Microservices (.NET 8 MVC)</div>
+            <div class="cert-footer">
+              <span class="cert-source udemy">Udemy</span>
+              <span class="cert-category">Backend</span>
+            </div>
+          </a>
+          <a class="cert-card" href="https://www.udemy.com/" rel="noopener" target="_blank">
+            <div class="cert-card-top">
+              <div class="cert-icon blue"><img alt="Udemy" src="https://cdn.simpleicons.org/udemy/A435F0" /></div>
+              <svg class="cert-link-icon" fill="none" height="14" stroke="currentColor" stroke-width="2"
+                viewbox="0 0 24 24" width="14">
+                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" x2="21" y1="14" y2="3"></line>
+              </svg>
+            </div>
+            <div class="cert-name">Ultimate ASP.NET Core Web API Guide</div>
+            <div class="cert-footer">
+              <span class="cert-source udemy">Udemy</span>
+              <span class="cert-category">Backend</span>
+            </div>
+          </a>
+          <a class="cert-card" href="https://www.udemy.com/" rel="noopener" target="_blank">
+            <div class="cert-card-top">
+              <div class="cert-icon blue"><img alt="Udemy" src="https://cdn.simpleicons.org/udemy/A435F0" /></div>
+              <svg class="cert-link-icon" fill="none" height="14" stroke="currentColor" stroke-width="2"
+                viewbox="0 0 24 24" width="14">
+                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" x2="21" y1="14" y2="3"></line>
+              </svg>
+            </div>
+            <div class="cert-name">C# Intermediate: OOP &amp; Interfaces</div>
+            <div class="cert-footer">
+              <span class="cert-source udemy">Udemy</span>
+              <span class="cert-category">Backend</span>
+            </div>
+          </a>
+          <a class="cert-card" href="https://maharatech.gov.eg/" rel="noopener" target="_blank">
+            <div class="cert-card-top">
+              <div class="cert-icon orange"><img alt="MaharaTech"
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23e67e22'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial,sans-serif' font-weight='800' font-size='22' fill='white'%3EMT%3C/text%3E%3C/svg%3E" />
+              </div>
+              <svg class="cert-link-icon" fill="none" height="14" stroke="currentColor" stroke-width="2"
+                viewbox="0 0 24 24" width="14">
+                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" x2="21" y1="14" y2="3"></line>
+              </svg>
+            </div>
+            <div class="cert-name">Database Fundamentals</div>
+            <div class="cert-footer">
+              <span class="cert-source maharatech">MaharaTech</span>
+              <span class="cert-category">Data</span>
+            </div>
+          </a>
+          <a class="cert-card" href="https://www.udemy.com/" rel="noopener" target="_blank">
+            <div class="cert-card-top">
+              <div class="cert-icon green"><img alt="Udemy" src="https://cdn.simpleicons.org/udemy/A435F0" /></div>
+              <svg class="cert-link-icon" fill="none" height="14" stroke="currentColor" stroke-width="2"
+                viewbox="0 0 24 24" width="14">
+                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" x2="21" y1="14" y2="3"></line>
+              </svg>
+            </div>
+            <div class="cert-name">Machine Learning with Scikit-Learn</div>
+            <div class="cert-footer">
+              <span class="cert-source udemy">Udemy</span>
+              <span class="cert-category">AI / ML</span>
+            </div>
+          </a>
+          <a class="cert-card" href="https://www.udemy.com/" rel="noopener" target="_blank">
+            <div class="cert-card-top">
+              <div class="cert-icon orange"><img alt="Udemy" src="https://cdn.simpleicons.org/udemy/A435F0" /></div>
+              <svg class="cert-link-icon" fill="none" height="14" stroke="currentColor" stroke-width="2"
+                viewbox="0 0 24 24" width="14">
+                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" x2="21" y1="14" y2="3"></line>
+              </svg>
+            </div>
+            <div class="cert-name">Professional Planning Engineer</div>
+            <div class="cert-footer">
+              <span class="cert-source udemy">Udemy</span>
+              <span class="cert-category">Engineering</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-wrap">
+      <div class="reveal">
+        <div class="contact-card">
+          <div class="contact-card-inner">
+            <div class="contact-info">
+              <p class="c-eyebrow">Get in touch</p>
+              <h2 class="c-title">Let's build something<br /><span
+                  style="background:linear-gradient(135deg,var(--accent),var(--accent2),var(--accent3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">extraordinary.</span>
+              </h2>
+              <p class="c-sub">Open to Software Developer, BIM Automation, and Cloud Architecture roles. Based in Abu
+                Dhabi
+                — available globally.</p>
+              <div class="c-links">
+                <a class="c-link c-email" href="mailto:BasselTaha98@gmail.com">
+                  <svg fill="none" height="15" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="15">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,12 2,6"></polyline>
+                  </svg>
+                  BasselTaha98@gmail.com
+                </a>
+                <a class="c-link c-linkedin" href="https://www.linkedin.com/in/Bassel-Taha-Keshk" target="_blank">
+                  <svg fill="currentColor" height="15" viewbox="0 0 24 24" width="15">
+                    <path
+                      d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z">
+                    </path>
+                  </svg>
+                  LinkedIn
+                </a>
+                <a class="c-link c-github" href="https://github.com/Bassel-Taha" target="_blank">
+                  <svg fill="currentColor" height="15" viewbox="0 0 24 24" width="15">
+                    <path
+                      d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z">
+                    </path>
+                  </svg>
+                  GitHub
+                </a>
+                <a class="c-link c-phone" href="tel:+971506906071">
+                  <svg fill="none" height="15" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="15">
+                    <path
+                      d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 15v1.92z">
+                    </path>
+                  </svg>
+                  UAE: +971 50 690 6071
+                </a>
+                <a class="c-link c-phone" href="tel:+201226480472">
+                  <svg fill="none" height="15" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="15">
+                    <path
+                      d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 15v1.92z">
+                    </path>
+                  </svg>
+                  EGY: +20 122 648 0472
+                </a>
+              </div>
+            </div>
+            <a class="contact-qr-sec" href="https://www.linkedin.com/in/bassel-taha-keshk/?skipRedirect=true"
+              style="text-decoration:none;" target="_blank">
+              <div class="qr-box">
+                <img alt="LinkedIn QR Code" class="qr-img"
+                  src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=https://www.linkedin.com/in/bassel-taha-keshk/?skipRedirect=true" />
+              </div>
+              <p class="qr-text">Connect on LinkedIn</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <p>Designed &amp; built by <strong>Bassel Taha</strong> · Abu Dhabi, UAE · 2025</p>
+  </footer>
+  <script>
+    // ── THEME TOGGLE ──
+    const themeBtn = document.getElementById('theme-toggle');
+    themeBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    });
+
+    // ── CURSOR ──
+    const cur = document.getElementById('cur');
+    const curR = document.getElementById('curR');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cur.style.left = mx + 'px'; cur.style.top = my + 'px'; });
+    (function animRing() { rx += (mx - rx) * .15; ry += (my - ry) * .15; curR.style.left = rx + 'px'; curR.style.top = ry + 'px'; requestAnimationFrame(animRing); })();
+    document.querySelectorAll('a,button,.proj-card,.hl-card,.exp-card,.cert-card').forEach(el => {
+      el.addEventListener('mouseenter', () => { cur.style.width = '16px'; cur.style.height = '16px'; curR.style.width = '48px'; curR.style.height = '48px'; });
+      el.addEventListener('mouseleave', () => { cur.style.width = '8px'; cur.style.height = '8px'; curR.style.width = '32px'; curR.style.height = '32px'; });
+    });
+
+    // ── SCROLL BAR ──
+    const sb = document.getElementById('sb');
+    window.addEventListener('scroll', () => {
+      const p = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+      sb.style.transform = 'scaleX(' + p + ')';
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+      const secs = ['about', 'skills', 'experience', 'projects', 'education', 'contact'];
+      let cur2 = '';
+      secs.forEach(id => { const el = document.getElementById(id); if (el && window.scrollY >= el.offsetTop - 120) cur2 = id; });
+      document.querySelectorAll('.nav-links a').forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + cur2); });
+    });
+
+    // ── NAV MOBILE ──
+    document.getElementById('nav-tog').addEventListener('click', () => {
+      document.getElementById('nav-links').classList.toggle('open');
+    });
+    document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => document.getElementById('nav-links').classList.remove('open')));
+
+    // ── TYPEWRITER ──
+    const titles = ['Full Stack Developer', 'BIM Automation Specialist', '.NET & React Engineer', 'Cloud Architect on Azure', 'AEC Tech Builder'];
+    let ti = 0, ci = 0, del = false;
+    const tw = document.getElementById('typewriter');
+    function type() {
+      const t = titles[ti];
+      if (!del) { tw.textContent = t.slice(0, ++ci); if (ci === t.length) { del = true; setTimeout(type, 1800); return; } }
+      else { tw.textContent = t.slice(0, --ci); if (ci === 0) { del = false; ti = (ti + 1) % titles.length; } }
+      setTimeout(type, del ? 55 : 95);
+    }
+    setTimeout(type, 800);
+
+    // ── HERO CANVAS ──
+    const canvas = document.getElementById('hero-canvas');
+    const ctx = canvas.getContext('2d');
+    let W, H, pts = [];
+    function resize() { W = canvas.width = window.innerWidth; H = canvas.height = canvas.parentElement.offsetHeight; }
+    resize(); window.addEventListener('resize', resize);
+    function mkPt() {
+      const hue = [217, 160, 350][Math.floor(Math.random() * 3)];
+      return { x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .3, vy: (Math.random() - .5) * .3, r: Math.random() * 1.5 + .5, hue };
+    }
+    for (let i = 0; i < 55; i++) pts.push(mkPt());
+    function drawCanvas() {
+      ctx.clearRect(0, 0, W, H);
+      pts.forEach(p => {
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0 || p.x > W) p.vx *= -1;
+        if (p.y < 0 || p.y > H) p.vy *= -1;
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `hsla(${p.hue},60%,55%,0.2)`; ctx.fill();
+      });
+      pts.forEach((a, i) => { pts.slice(i + 1).forEach(b => { const dx = a.x - b.x, dy = a.y - b.y, d = Math.sqrt(dx * dx + dy * dy); if (d < 120) { ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.strokeStyle = `rgba(37,99,235,${.06 * (1 - d / 120)})`; ctx.lineWidth = .8; ctx.stroke(); } }); });
+      requestAnimationFrame(drawCanvas);
+    }
+    drawCanvas();
+
+    // ── REVEAL ──
+    const obs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); }); }, { threshold: .08 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // ── COUNTERS ──
+    function animCount(el, target) {
+      let n = 0; const step = Math.ceil(target / 55);
+      const iv = setInterval(() => { n = Math.min(n + step, target); el.textContent = n + (target === 80 ? '%+' : '+'); if (n >= target) clearInterval(iv); }, 22);
+    }
+    const coObs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { document.querySelectorAll('.stat-n').forEach(el => animCount(el, +el.dataset.count)); coObs.disconnect(); } }); }, { threshold: .3 });
+    const statsEl = document.querySelector('.hero-stats');
+    if (statsEl) coObs.observe(statsEl);
+
+
+
+    // ── PROJECT FILTER ──
+    document.querySelectorAll('.f-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.f-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const f = btn.dataset.filter;
+        document.querySelectorAll('.proj-card').forEach(card => {
+          const cats = card.dataset.cats || '';
+          card.classList.toggle('hide', f !== 'all' && !cats.split(' ').includes(f));
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
