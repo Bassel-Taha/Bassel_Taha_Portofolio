@@ -135,12 +135,11 @@ if (project) {
   document.getElementById('role').textContent = project.role;
 
   const visual = document.querySelector('.case-visual');
-  if (project.coverCaption) visual.querySelector('figcaption').textContent = project.coverCaption;
   const cover = new Image(960, 480);
   cover.alt = '';
   cover.decoding = 'async';
   cover.addEventListener('error', () => { visual.hidden = true; }, { once: true });
-  cover.src = `assets/projects/${project.id}.webp`;
+  cover.src = project.coverSrc || `assets/projects/${project.id}.webp`;
   visual.prepend(cover);
   visual.hidden = false;
 

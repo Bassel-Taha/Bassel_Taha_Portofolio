@@ -4,7 +4,7 @@ const projectsData = {
     "title": "IFC to NWC Converter",
     "category": "BIM / AEC",
     "role": "Software Developer",
-    "coverCaption": "Windows desktop interface preview",
+    "coverSrc": "assets/projects/ifc-to-nwc.svg",
     "tags": ["C++", "Python", "IfcOpenShell", "Autodesk NWCreate", "Windows x64", "n8n"],
     "overview": "A standalone Windows x64 converter that creates Navisworks Cache (NWC) files directly from IFC models without a Navisworks installation. A desktop app and CLI support both single-file conversions and folder queues.",
     "workflow": {
