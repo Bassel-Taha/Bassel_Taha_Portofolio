@@ -9,7 +9,7 @@
   <script src="theme.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=Inter:wght@400..800&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=Inter:wght@400..800&amp;family=JetBrains+Mono:wght@400..800&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="portfolio.css">
   <script defer src="projects_data.js"></script>
   <script defer src="portfolio.js"></script>
@@ -19,7 +19,7 @@
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="shell header-inner">
-      <a class="wordmark" href="#hero"><span class="monogram" aria-hidden="true">BT</span><span>Bassel Taha</span></a>
+      <a class="wordmark" href="#hero"><span class="monogram" aria-hidden="true">&lt;BT/&gt;</span><span>Bassel Taha</span></a>
       <nav id="site-navigation" class="site-nav" aria-label="Main navigation">
         <a href="#projects">Work</a>
         <a href="#experience">Experience</a>
@@ -42,9 +42,10 @@
       <div class="hero-frame" data-spotlight>
         <img class="hero-image" src="assets/developer-aps-ai-hero.webp" width="1536" height="1024" alt="Concept illustration of a BIM model viewer, a code editor, and an AI workflow" fetchpriority="high">
         <div class="hero-copy">
-          <p class="eyebrow"><span class="availability-dot"></span>Available for new opportunities</p>
-          <h1 id="hero-title">Bassel Taha<span>.</span></h1>
-          <p class="hero-role">Full Stack Developer <span>&amp; BIM Automation Specialist</span></p>
+          <p class="eyebrow"><span class="availability-dot"></span>status: available_for_new_opportunities</p>
+          <p class="terminal-line" aria-hidden="true"><span class="prompt">bassel@dev</span>:<span class="path">~</span>$ whoami</p>
+          <h1 id="hero-title">Bassel Taha<span>.</span><i class="cursor" aria-hidden="true"></i></h1>
+          <p class="hero-role"><span class="code-token">&lt;</span>Full Stack Developer<span class="code-token"> /&gt;</span> <span>&amp; BIM Automation Specialist</span></p>
           <p class="hero-description">I turn complex construction workflows into software, from browser-based BIM tools to cloud platforms and automated model pipelines.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="#projects">Explore my work <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a>
@@ -53,6 +54,12 @@
         </div>
         <span class="image-caption" aria-hidden="true">Development <span>／</span> Autodesk APS <span>／</span> AI</span>
       </div>
+      <ul class="hero-stats" aria-label="Career highlights">
+        <li><strong><span data-count="6">6</span>+</strong><span>Years experience</span></li>
+        <li><strong><span data-count="20">20</span>+</strong><span>Projects shipped</span></li>
+        <li><strong><span data-count="30">30</span>+</strong><span>Technologies</span></li>
+        <li><strong><span data-count="80">80</span>%+</strong><span>Efficiency gains</span></li>
+      </ul>
       <div class="hero-strip">
         <span><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 5-8 10-8 10s-8-5-8-10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>Egypt</span>
         <ul aria-label="Core technologies"><li>.NET</li><li>React</li><li>Azure</li><li>Autodesk APS</li></ul>
@@ -441,7 +448,7 @@
       </div>
       <div class="about-grid">
         <div class="about-copy">
-          <p>I’m a full stack developer and BIM automation specialist with a background in civil engineering and over four years of experience building software for architecture, engineering, and construction.</p>
+          <p>I’m a full stack developer and BIM automation specialist with a background in civil engineering and over six years of experience building software for architecture, engineering, and construction.</p>
           <p>I work remotely from Egypt as a BIM Coordinator and Software Developer at Saipem. I maintain the DDC platform and DDC Tasks Manager, build n8n workflows, and maintain AutoSpool.</p>
         </div>
         <dl class="focus-card">

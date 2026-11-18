@@ -231,5 +231,96 @@ function setupQuickFind() {
   });
 }
 
+function setupStatCounters() {
+  const items = document.querySelectorAll('[data-count]');
+  if (!items.length || !('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const animate = (el) => {
+    const target = Number(el.dataset.count);
+    const duration = 1400;
+    const start = performance.now();
+    const step = (now) => {
+      const t = Math.min((now - start) / duration, 1);
+      el.textContent = Math.round(target * (1 - Math.pow(1 - t, 3)));
+      if (t < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      animate(entry.target);
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.6 });
+
+  items.forEach((el) => { el.textContent = '0'; observer.observe(el); });
+}
+
+function setupDigitalCursor() {
+  const fine = window.matchMedia('(any-hover: hover) and (any-pointer: fine)');
+  const calm = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (!fine.matches || calm.matches) return;
+
+  const glow = document.createElement('div');
+  const ring = document.createElement('div');
+  const dot = document.createElement('div');
+  glow.className = 'cursor-glow';
+  ring.className = 'cursor-ring';
+  dot.className = 'cursor-dot';
+  [glow, ring, dot].forEach((el) => { el.setAttribute('aria-hidden', 'true'); document.body.append(el); });
+
+  const glyphs = '01<>/{}[];=+*#$_'.split('');
+  let x = -100, y = -100, rx = x, ry = y, lastSpawn = 0, lastX = 0, lastY = 0, frame = 0;
+
+  function spawn(px, py) {
+    const bit = document.createElement('span');
+    bit.className = 'cursor-bit';
+    bit.setAttribute('aria-hidden', 'true');
+    bit.textContent = glyphs[Math.floor(Math.random() * glyphs.length)];
+    bit.style.left = `${px + (Math.random() * 16 - 8)}px`;
+    bit.style.top = `${py + (Math.random() * 16 - 8)}px`;
+    bit.style.setProperty('--drift', `${Math.random() * 30 - 15}px`);
+    document.body.append(bit);
+    bit.addEventListener('animationend', () => bit.remove(), { once: true });
+  }
+
+  function tick() {
+    rx += (x - rx) * 0.18;
+    ry += (y - ry) * 0.18;
+    ring.style.translate = `${rx}px ${ry}px`;
+    frame = Math.abs(x - rx) + Math.abs(y - ry) > 0.3 ? requestAnimationFrame(tick) : 0;
+  }
+
+  document.addEventListener('pointermove', (event) => {
+    if (event.pointerType !== 'mouse') return;
+    x = event.clientX;
+    y = event.clientY;
+    document.body.classList.add('cursor-live');
+    dot.style.transform = `translate(${x}px, ${y}px)`;
+    glow.style.transform = `translate(${x}px, ${y}px)`;
+    const interactive = event.target.closest?.('a, button, input, summary, label, [role="button"]');
+    ring.classList.toggle('is-hover', Boolean(interactive));
+    if (!frame) frame = requestAnimationFrame(tick);
+
+    const now = performance.now();
+    const moved = Math.hypot(x - lastX, y - lastY);
+    if (now - lastSpawn > 45 && moved > 14) {
+      spawn(x, y);
+      lastSpawn = now;
+      lastX = x;
+      lastY = y;
+    }
+  }, { passive: true });
+
+  document.addEventListener('pointerdown', () => ring.classList.add('is-down'));
+  document.addEventListener('pointerup', () => ring.classList.remove('is-down'));
+  document.documentElement.addEventListener('pointerleave', () => document.body.classList.remove('cursor-live'));
+}
+
 setupSpotlight();
 setupQuickFind();
+setupStatCounters();
+setupDigitalCursor();
