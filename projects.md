@@ -247,3 +247,21 @@ Developed a full-stack, server-side rendered (SSR) video upload and streaming ap
 - **Scalable Component Architecture:** Designed a highly reusable UI library (including Modals and Tab systems) using advanced Angular concepts like Content Projection (@ContentChildren, ng-content) and standalone components for clean, modular code.
 - **Optimized Data Fetching & Pagination:** Implemented infinite-scroll-friendly database queries using Firestore. Fetched video clips in limited batches using document snapshot cursors (startAt) resulting in reduced database reads and optimized application load times.
 - **Routing & State Management:** Utilized ActivatedRoute to deeply link dashboard states (like video sorting preferences) to query parameters (e.g., ?sort=), maintaining sync between the UI state and the URL. Built custom Event Blocker directives to intuitively handle Drag-and-Drop native browser events.
+
+---
+
+## 15. N8N automation
+
+- **Context:** Saipem
+- **Tech Stack / Tags:** n8n, TypeScript, Navisworks, PCF / IFC, Kubernetes
+
+Saipem’s self-hosted n8n platform connects engineering file shares, BIM tools, and backend processing services. Custom TypeScript nodes make file intake, model processing, and delivery reusable across workflows.
+
+**End-to-end workflow from PCF to NWD**
+
+1. **Pick up the source PCF.** An SMB trigger detects new piping files in a shared folder, and a download node retrieves them for processing.
+2. **Generate fabrication spools.** The custom AutoSpool n8n node submits each PCF to the AutoSpool service, tracks the job, and retrieves the processed PCF containing the spool results.
+3. **Build and publish the model.** The PCF-to-IFC node converts the processed PCF into an IFC4 model. A Navisworks publishing step loads that model and saves the final processed NWD file.
+4. **Deliver the NWD.** The workflow can save the finished file to a network share or publish it to Autodesk Construction Cloud.
+
+n8n tracks background jobs by ID and can route failures for review with diagnostic logs. The Navisworks integration also supports model property updates, model merging, and data exports in related workflows.

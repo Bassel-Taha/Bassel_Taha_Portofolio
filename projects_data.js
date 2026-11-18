@@ -36,6 +36,33 @@ const projectsData = {
       "SignalR"
     ]
   },
+  "n8n-automation": {
+    "id": "n8n-automation",
+    "title": "N8N automation",
+    "category": "BIM / AEC",
+    "catClass": "cat-bim",
+    "impactVal": "n8n",
+    "impactLbl": "Orchestration",
+    "role": "Workflow Automation & BIM Integration",
+    "fullHtml": `
+      Saipem’s self-hosted n8n platform connects engineering file shares, BIM tools, and backend processing services. Custom TypeScript nodes make file intake, model processing, and delivery reusable across workflows.<br/><br/>
+      <strong>End-to-end workflow from PCF to NWD</strong>
+      <ol style="padding-left: 1.2rem; margin: 0.5rem 0 1.25rem;">
+        <li><strong>Pick up the source PCF.</strong> An SMB trigger detects new piping files in a shared folder, and a download node retrieves them for processing.</li>
+        <li><strong>Generate fabrication spools.</strong> The custom AutoSpool n8n node submits each PCF to the AutoSpool service, tracks the job, and retrieves the processed PCF containing the spool results.</li>
+        <li><strong>Build and publish the model.</strong> The PCF-to-IFC node converts the processed PCF into an IFC4 model. A Navisworks publishing step loads that model and saves the final processed NWD file.</li>
+        <li><strong>Deliver the NWD.</strong> The workflow can save the finished file to a network share or publish it to Autodesk Construction Cloud.</li>
+      </ol>
+      n8n tracks background jobs by ID and can route failures for review with diagnostic logs. The Navisworks integration also supports model property updates, model merging, and data exports in related workflows.
+    `,
+    "tags": [
+      "n8n",
+      "TypeScript",
+      "Navisworks",
+      "PCF / IFC",
+      "Kubernetes"
+    ]
+  },
   "autospool-automated-piping-spool-generation-engine": {
     "id": "autospool-automated-piping-spool-generation-engine",
     "title": "AutoSpool Engine",
