@@ -164,22 +164,8 @@ Developed a high-performance, automated piping spool generation engine that pars
 - **Batch Processing & GUI:** Created both a robust Command-Line Interface (CLI) for batch processing and a Windows Presentation Foundation (WPF) GUI (AutoSpool.GUI) to visualize spool structures and streamline workflows.
 
 ---
-+
-## 10. WPF & MVVM Architecture Suite
-+- **Context:** ATLAS / Desktop Development
-+- **Tech Stack / Tags:** C#, WPF, MVVM, Autodesk API (Revit/Navisworks), XAML, Clean Architecture
-+
-+A comprehensive collection of WPF projects utilizing the full capabilities of the WPF and MVVM design architecture. This suite includes multiple desktop applications with clean architecture, various plugins for Autodesk applications featuring intuitive WPF user interfaces for enhanced user experience, and the strategic implementation of MVVM principles across modern web applications.
-+
-+**Key Features:**
-+- **Multiple WPF Desktop Projects:** Developed several standalone desktop applications leveraging the full power of XAML, data binding, and asynchronous programming.
-+- **MVVM Architecture:** Implemented consistent MVVM design patterns across desktop and web-based environments to ensure clean separation of concerns.
-+- **Autodesk Plugin Suite:** Engineered multiple plugins for Autodesk software (Revit, Navisworks) utilizing WPF for highly-responsive and user-friendly command interfaces.
-- **Multimodal UI/UX:** Focused on creating seamless user experiences through advanced WPF styling, control templating, and custom behaviors.
 
----
-
-## 11. E-Commerce Microservices Application
+## 10. E-Commerce Microservices Application
 - **Context:** Personal & Freelance / Personal Project
 - **Tech Stack / Tags:** C#, .NET 8, ASP.NET Core Web API, Microservices, Azure Service Bus, MS SQL Server, EF Core, Stripe API
 
@@ -196,7 +182,7 @@ Designed and developed a scalable, full-stack e-commerce platform built from the
 
 ---
 
-## 12. Web-Based IFC 3D Viewer
+## 11. Web-Based IFC 3D Viewer
 - **Context:** SAIPEM
 - **Tech Stack / Tags:** JavaScript (ES6+), HTML5, CSS3, Vite, Three.js, @thatopen/components, @thatopen/fragments, web-ifc (WebAssembly)
 
@@ -213,7 +199,7 @@ Designed and developed a high-performance web application tailored for the visua
 
 ---
 
-## 13. Image Processing Web Application (Rust & WebAssembly)
+## 12. Image Processing Web Application (Rust & WebAssembly)
 - **Context:** Personal & Freelance
 - **Tech Stack / Tags:** Rust, WebAssembly (WASM), JavaScript, HTML5, Webpack
 
@@ -232,7 +218,7 @@ Demonstrated the capability to push the boundaries of browser performance by off
 
 ---
 
-## 14. Angular-Clips (Video Streaming & Management Platform)
+## 13. Angular-Clips (Video Streaming & Management Platform)
 - **Context:** Personal & Freelance
 - **Tech Stack / Tags:** Angular 17, Firebase, WebAssembly (WASM), FFmpeg, RxJS, Tailwind CSS
 
@@ -250,7 +236,7 @@ Developed a full-stack, server-side rendered (SSR) video upload and streaming ap
 
 ---
 
-## 15. N8N automation
+## 14. N8N automation
 
 - **Context:** Saipem
 - **Tech Stack / Tags:** n8n, TypeScript, Navisworks, PCF / IFC, Kubernetes
@@ -265,3 +251,16 @@ Saipem’s self-hosted n8n platform connects engineering file shares, BIM tools,
 4. **Deliver the NWD.** The workflow can save the finished file to a network share or publish it to Autodesk Construction Cloud.
 
 n8n tracks background jobs by ID and can route failures for review with diagnostic logs. The Navisworks integration also supports model property updates, model merging, and data exports in related workflows.
+
+---
+
+## 15. IFC to NWC Converter
+
+- **Tech Stack / Tags:** C++, Python, IfcOpenShell, Autodesk NWCreate, Windows x64, n8n
+
+A standalone Windows x64 converter that creates Navisworks Cache (NWC) files directly from IFC models without a Navisworks installation. It supports single files and folder queues through a desktop app and CLI.
+
+1. **Select and validate the inputs.** Choose IFC files and an output location. The desktop app can preview the queue and identify conflicting outputs.
+2. **Extract IFC model data.** IfcOpenShell reads geometry and resolves placements. The conversion carries forward spatial hierarchy, element identifiers, and supported property sets and quantities.
+3. **Write the NWC.** A native C++ writer uses Autodesk’s NWCreate runtime to generate the output directly. Checkpointed and disk-backed processing modes support larger models and eligible job recovery.
+4. **Review the results.** A JSON report and log capture conversion outcomes, including skipped elements. An n8n node can also submit jobs to a Windows worker, track their status, and download the result.
