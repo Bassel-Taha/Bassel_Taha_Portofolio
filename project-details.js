@@ -8,7 +8,7 @@ const state = new URLSearchParams();
   if (params.has(key)) state.set(key, params.get(key));
 });
 
-if (state.size) document.querySelector('.case-back').href = `Bassel-Taha-Portfolio.html?${state}#projects`;
+if (state.size) document.querySelector('.case-back').href = `./?${state}#projects`;
 
 function renderWorkflow(workflow) {
   const section = document.getElementById('case-workflow');

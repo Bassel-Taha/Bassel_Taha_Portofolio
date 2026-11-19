@@ -65,7 +65,7 @@ function setupQuickFind() {
   if (!trigger || typeof HTMLDialogElement === 'undefined' || !HTMLDialogElement.prototype.showModal) return;
 
   const onHome = Boolean(document.querySelector('#project-grid'));
-  const homePath = onHome ? '' : 'Bassel-Taha-Portfolio.html';
+  const homePath = onHome ? '' : './';
   const sections = [
     ['Selected work', 'projects'],
     ['Experience', 'experience'],
