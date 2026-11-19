@@ -542,48 +542,6 @@ const projectsData = {
       }
     ]
   },
-  "construction-management-graduation-project": {
-    "id": "construction-management-graduation-project",
-    "title": "Construction Management Graduation Project",
-    "category": "BIM / AEC",
-    "catClass": "cat-bim",
-    "impactVal": "4D",
-    "impactLbl": "Project Planning",
-    "role": "Project Manager / BIM Modeler",
-    "tags": [
-      "BIM",
-      "Navisworks",
-      "Primavera P6",
-      "Power BI",
-      "MS Project"
-    ],
-    "overview": "This graduation project applied construction management methods to a large wastewater treatment facility in Egypt, with a focus on BIM coordination, project scheduling, and reporting.",
-    "sections": [
-      {
-        "title": "Facility scope and delivery context",
-        "points": [
-          "Evaluated real-world joint venture planning and execution.",
-          "Structured around an enormous 64.8 m³/second processing capacity.",
-          "Documented full lifecycle management strategies under rigorous government oversight."
-        ]
-      },
-      {
-        "title": "BIM models and 4D scheduling",
-        "points": [
-          "Comprehensive BIM Modeling across disciplines using Autodesk Revit.",
-          "Applied 4D scheduling principles via Navisworks, Synchro Pro, and Fuzor.",
-          "Structured deep project timelines using MS Project, WBS Schedule Pro, and Primavera P6."
-        ]
-      },
-      {
-        "title": "Reporting and field operations",
-        "points": [
-          "Managed reporting and analytics utilizing dynamic Power BI dashboards.",
-          "Outlined robust field operations logic."
-        ]
-      }
-    ]
-  },
   "angular-clips-video-processing-platform": {
     "id": "angular-clips-video-processing-platform",
     "coverSrcLight": "assets/projects/angular-clips-video-processing-platform-light.webp",
@@ -764,6 +722,48 @@ const projectsData = {
         "title": "Response caching",
         "points": [
           "Redis response caching reduces database work for repeat requests and helps minimize load times."
+        ]
+      }
+    ]
+  },
+  "construction-management-graduation-project": {
+    "id": "construction-management-graduation-project",
+    "title": "Construction Management Graduation Project",
+    "category": "BIM / AEC",
+    "catClass": "cat-bim",
+    "impactVal": "4D",
+    "impactLbl": "Project Planning",
+    "role": "Project Manager / BIM Modeler",
+    "tags": [
+      "BIM",
+      "Navisworks",
+      "Primavera P6",
+      "Power BI",
+      "MS Project"
+    ],
+    "overview": "This graduation project applied construction management methods to a large wastewater treatment facility in Egypt, with a focus on BIM coordination, project scheduling, and reporting.",
+    "sections": [
+      {
+        "title": "Facility scope and delivery context",
+        "points": [
+          "Evaluated real-world joint venture planning and execution.",
+          "Structured around an enormous 64.8 m³/second processing capacity.",
+          "Documented full lifecycle management strategies under rigorous government oversight."
+        ]
+      },
+      {
+        "title": "BIM models and 4D scheduling",
+        "points": [
+          "Comprehensive BIM Modeling across disciplines using Autodesk Revit.",
+          "Applied 4D scheduling principles via Navisworks, Synchro Pro, and Fuzor.",
+          "Structured deep project timelines using MS Project, WBS Schedule Pro, and Primavera P6."
+        ]
+      },
+      {
+        "title": "Reporting and field operations",
+        "points": [
+          "Managed reporting and analytics utilizing dynamic Power BI dashboards.",
+          "Outlined robust field operations logic."
         ]
       }
     ]

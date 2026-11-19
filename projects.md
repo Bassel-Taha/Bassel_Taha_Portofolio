@@ -112,27 +112,7 @@ Engineered a suite of custom Power BI visual components that seamlessly connect 
 - Features full support for scheduled, incremental data refreshes
 
 ---
-## 7. Construction Management Graduation Project
-- **Context:** Personal & Freelance / Port Said University
-- **Tech Stack / Tags:** BIM, Navisworks, Primavera P6, Power BI, Construction Management, MS Project
-
-A comprehensive academic showcase applying advanced project management methodologies to a major national wastewater treatment facility handling massive capacities in Egypt.
-
-**Project Scope:**
-- Evaluated real-world joint venture planning and execution
-- Structured around an enormous 64.8 m³/second processing capacity
-- Documented full lifecycle management strategies under rigorous government oversight
-
-**Implementation Strategy:**
-- Comprehensive BIM Modeling across disciplines using Autodesk Revit
-- Applied 4D scheduling principles via Navisworks, Synchro Pro, and Fuzor
-- Structured deep project timelines using MS Project, WBS Schedule Pro, and Primavera P6
-- Managed reporting and analytics utilizing dynamic Power BI dashboards
-- Outlined robust field operations logic
-
----
-
-## 8. DDC Tasks Manager
+## 7. DDC Tasks Manager
 - **Context:** SAIPEM (Active)
 - **Tech Stack / Tags:** React, TypeScript, Vite, Tailwind CSS, Node.js, Express.js, MongoDB, Mongoose, Autodesk Platform Services (APS), Swagger UI
 
@@ -149,7 +129,7 @@ Led the end-to-end architecture and development of an enterprise-grade task and 
 
 ---
 
-## 9. AutoSpool (Automated Piping Spool Generation Engine)
+## 8. AutoSpool (Automated Piping Spool Generation Engine)
 - **Context:** SAIPEM / Engineering
 - **Tech Stack / Tags:** C#, .NET 8, WPF, Graph Theory, 3D Geometry
 
@@ -165,7 +145,7 @@ Developed a high-performance, automated piping spool generation engine that pars
 
 ---
 
-## 10. E-Commerce Microservices Application
+## 9. E-Commerce Microservices Application
 - **Context:** Personal & Freelance / Personal Project
 - **Tech Stack / Tags:** C#, .NET 8, ASP.NET Core Web API, Microservices, Azure Service Bus, MS SQL Server, EF Core, Stripe API
 
@@ -182,7 +162,7 @@ Designed and developed a scalable, full-stack e-commerce platform built from the
 
 ---
 
-## 11. Web-Based IFC 3D Viewer
+## 10. Web-Based IFC 3D Viewer
 - **Context:** SAIPEM
 - **Tech Stack / Tags:** JavaScript (ES6+), HTML5, CSS3, Vite, Three.js, @thatopen/components, @thatopen/fragments, web-ifc (WebAssembly)
 
@@ -199,7 +179,7 @@ Designed and developed a high-performance web application tailored for the visua
 
 ---
 
-## 12. Image Processing Web Application (Rust & WebAssembly)
+## 11. Image Processing Web Application (Rust & WebAssembly)
 - **Context:** Personal & Freelance
 - **Tech Stack / Tags:** Rust, WebAssembly (WASM), JavaScript, HTML5, Webpack
 
@@ -218,7 +198,7 @@ Demonstrated the capability to push the boundaries of browser performance by off
 
 ---
 
-## 13. Angular-Clips (Video Streaming & Management Platform)
+## 12. Angular-Clips (Video Streaming & Management Platform)
 - **Context:** Personal & Freelance
 - **Tech Stack / Tags:** Angular 17, Firebase, WebAssembly (WASM), FFmpeg, RxJS, Tailwind CSS
 
@@ -236,7 +216,7 @@ Developed a full-stack, server-side rendered (SSR) video upload and streaming ap
 
 ---
 
-## 14. N8N automation
+## 13. N8N automation
 
 - **Context:** Saipem
 - **Tech Stack / Tags:** n8n, TypeScript, Navisworks, PCF / IFC, Kubernetes
@@ -254,7 +234,7 @@ n8n tracks background jobs by ID and can route failures for review with diagnost
 
 ---
 
-## 15. IFC to NWC Converter
+## 14. IFC to NWC Converter
 
 - **Tech Stack / Tags:** C++, Python, IfcOpenShell, Autodesk NWCreate, Windows x64, n8n
 
@@ -264,3 +244,23 @@ A standalone Windows x64 converter that creates Navisworks Cache (NWC) files dir
 2. **Extract IFC model data.** IfcOpenShell reads geometry and resolves placements. The conversion carries forward spatial hierarchy, element identifiers, and supported property sets and quantities.
 3. **Write the NWC.** A native C++ writer uses Autodesk’s NWCreate runtime to generate the output directly. Checkpointed and disk-backed processing modes support larger models and eligible job recovery.
 4. **Review the results.** A JSON report and log capture conversion outcomes, including skipped elements. An n8n node can also submit jobs to a Windows worker, track their status, and download the result.
+
+---
+
+## 15. Construction Management Graduation Project
+- **Context:** Personal & Freelance / Port Said University
+- **Tech Stack / Tags:** BIM, Navisworks, Primavera P6, Power BI, Construction Management, MS Project
+
+A comprehensive academic showcase applying advanced project management methodologies to a major national wastewater treatment facility handling massive capacities in Egypt.
+
+**Project Scope:**
+- Evaluated real-world joint venture planning and execution
+- Structured around an enormous 64.8 m³/second processing capacity
+- Documented full lifecycle management strategies under rigorous government oversight
+
+**Implementation Strategy:**
+- Comprehensive BIM Modeling across disciplines using Autodesk Revit
+- Applied 4D scheduling principles via Navisworks, Synchro Pro, and Fuzor
+- Structured deep project timelines using MS Project, WBS Schedule Pro, and Primavera P6
+- Managed reporting and analytics utilizing dynamic Power BI dashboards
+- Outlined robust field operations logic
