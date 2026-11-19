@@ -40,7 +40,7 @@
   <main id="main" tabindex="-1">
     <section class="shell hero" id="hero" aria-labelledby="hero-title">
       <div class="hero-frame" data-spotlight>
-        <img class="hero-image" src="assets/developer-aps-ai-hero.webp" width="1536" height="1024" alt="Concept illustration of a BIM model viewer, a code editor, and an AI workflow" fetchpriority="high">
+        <img class="hero-image" src="assets/developer-aps-ai-hero.webp" data-src-dark="assets/developer-aps-ai-hero.webp" data-src-light="assets/developer-aps-ai-hero-light.webp" width="1536" height="1024" alt="Concept illustration of a BIM model viewer, a code editor, and an AI workflow" fetchpriority="high">
         <div class="hero-copy">
           <p class="eyebrow"><span class="availability-dot"></span>status: available_for_new_opportunities</p>
           <p class="terminal-line" aria-hidden="true"><span class="prompt">bassel@dev</span>:<span class="path">~</span>$ whoami</p>
@@ -61,9 +61,9 @@
         <li><strong><span data-count="80">80</span>%+</strong><span>Efficiency gains</span></li>
       </ul>
       <div class="hero-strip">
-        <span><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 5-8 10-8 10s-8-5-8-10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>Egypt</span>
-        <ul aria-label="Core technologies"><li>.NET</li><li>React</li><li>Azure</li><li>Autodesk APS</li></ul>
-        <a href="https://www.linkedin.com/in/Bassel-Taha-Keshk" target="_blank" rel="noopener noreferrer">LinkedIn <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6M8 6h10v10"/></svg></a>
+        <span class="strip-location"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 5-8 10-8 10s-8-5-8-10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><span class="strip-label">location:</span> Egypt <em>· remote</em></span>
+        <div class="strip-stack"><span class="strip-label" aria-hidden="true">core_stack = [</span><ul aria-label="Core technologies"><li style="--chip:#a78bfa">C#</li><li style="--chip:#a78bfa">.NET</li><li style="--chip:#a78bfa">TypeScript</li><li style="--chip:#a78bfa">Python</li><li style="--chip:#a78bfa">C++</li><li style="--chip:#61dafb">React</li><li style="--chip:#61dafb">Node.js</li><li style="--chip:#61dafb">WebAssembly</li><li style="--chip:#3b9cff">Azure</li><li style="--chip:#3b9cff">Kubernetes</li><li style="--chip:#3b9cff">SQL &amp; NoSQL</li><li style="--chip:#79f2ca">Autodesk APS</li><li style="--chip:#79f2ca">Navisworks &amp; Revit API</li><li style="--chip:#79f2ca">IFC / BIM</li><li style="--chip:#fbbf24">n8n</li><li style="--chip:#fbbf24">Automation</li><li style="--chip:#fbbf24">Power BI</li><li style="--chip:#f472b6">AI</li><li style="--chip:#f472b6">LLMs</li><li style="--chip:#f472b6">Machine Learning</li></ul><span class="strip-label" aria-hidden="true">]</span></div>
+        <a class="strip-link" href="https://www.linkedin.com/in/Bassel-Taha-Keshk" target="_blank" rel="noopener noreferrer">LinkedIn <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6M8 6h10v10"/></svg></a>
       </div>
     </section>
 
@@ -91,7 +91,7 @@
       <p class="sr-only" id="project-status" role="status"></p>
       <div id="project-grid" class="project-grid">
       <article class="project-card cat-bim" data-categories="bim dt" data-search="IFC Navisworks Cache NWC NWCreate IfcOpenShell C++ Python n8n Windows CLI">
-        <img class="project-cover" src="assets/projects/ifc-to-nwc.svg" width="960" height="480" alt="" loading="lazy" decoding="async">
+        <img class="project-cover" src="assets/projects/ifc-to-nwc.svg" data-src-dark="assets/projects/ifc-to-nwc.svg" data-src-light="assets/projects/ifc-to-nwc-light.svg" width="960" height="480" alt="" loading="lazy" decoding="async">
         <div class="project-card-body">
           <div class="project-meta"><span>BIM / AEC</span><span>Desktop &amp; CLI</span></div>
           <h3><a id="case-ifc-to-nwc" href="project-details.html?id=ifc-to-nwc">IFC to NWC Converter<span class="project-arrow"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6M8 6h10v10"/></svg></span></a></h3>
@@ -100,7 +100,7 @@
         </div>
       </article>
       <article class="project-card cat-bim" data-categories="bim cloud" data-search="Workflow Automation &amp; BIM Integration n8n TypeScript Navisworks PCF / IFC Kubernetes">
-        <img class="project-cover" src="assets/projects/n8n-automation.webp" width="960" height="480" alt="" loading="lazy" decoding="async">
+        <img class="project-cover" src="assets/projects/n8n-automation.webp" data-src-dark="assets/projects/n8n-automation.webp" data-src-light="assets/projects/n8n-automation-light.webp" width="960" height="480" alt="" loading="lazy" decoding="async">
         <div class="project-card-body">
           <div class="project-meta"><span>BIM / AEC</span><span>Saipem</span></div>
           <h3><a id="case-n8n-automation" href="project-details.html?id=n8n-automation">N8N automation<span class="project-arrow"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6M8 6h10v10"/></svg></span></a></h3>
@@ -109,7 +109,7 @@
         </div>
       </article>
       <article class="project-card cat-fs" data-categories="fs bim cloud" data-search="Fullstack Developer Lead React Node.js MongoDB Vite APS">
-        <img class="project-cover" src="assets/projects/ddc-tasks-manager.webp" width="960" height="480" alt="" loading="lazy" decoding="async">
+        <img class="project-cover" src="assets/projects/ddc-tasks-manager.webp" data-src-dark="assets/projects/ddc-tasks-manager.webp" data-src-light="assets/projects/ddc-tasks-manager-light.webp" width="960" height="480" alt="" loading="lazy" decoding="async">
         <div class="project-card-body">
           <div class="project-meta"><span>Full Stack</span><span>Saipem</span></div>
           <h3><a id="case-ddc-tasks-manager" href="project-details.html?id=ddc-tasks-manager">DDC Tasks Manager<span class="project-arrow"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6M8 6h10v10"/></svg></span></a></h3>
@@ -118,7 +118,7 @@
         </div>
       </article>
       <article class="project-card cat-bim" data-categories="bim fs" data-search="Full Stack Developer C# .NET Core React SignalR WASM">
-        <img class="project-cover" src="assets/projects/bim-toolkit.webp" width="960" height="480" alt="" loading="lazy" decoding="async">
+        <img class="project-cover" src="assets/projects/bim-toolkit.webp" data-src-dark="assets/projects/bim-toolkit.webp" data-src-light="assets/projects/bim-toolkit-light.webp" width="960" height="480" alt="" loading="lazy" decoding="async">
         <div class="project-card-body">
           <div class="project-meta"><span>BIM / AEC</span><span>Saipem</span></div>
           <h3><a id="case-bim-toolkit" href="project-details.html?id=bim-toolkit">BIM Toolkit<span class="project-arrow"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6M8 6h10v10"/></svg></span></a></h3>
@@ -127,7 +127,7 @@
         </div>
       </article>
       <article class="project-card cat-dt" data-categories="dt bim" data-search="Lead Software Engineer C# .NET 8 WPF Graph Theory 3D Geo">
-        <img class="project-cover" src="assets/projects/autospool-automated-piping-spool-generation-engine.webp" width="960" height="480" alt="" loading="lazy" decoding="async">
+        <img class="project-cover" src="assets/projects/autospool-automated-piping-spool-generation-engine.webp" data-src-dark="assets/projects/autospool-automated-piping-spool-generation-engine.webp" data-src-light="assets/projects/autospool-automated-piping-spool-generation-engine-light.webp" width="960" height="480" alt="" loading="lazy" decoding="async">
         <div class="project-card-body">
           <div class="project-meta"><span>Desktop / WASM</span><span>Saipem</span></div>
           <h3><a id="case-autospool-automated-piping-spool-generation-engine" href="project-details.html?id=autospool-automated-piping-spool-generation-engine">AutoSpool Engine<span class="project-arrow"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6M8 6h10v10"/></svg></span></a></h3>
@@ -136,7 +136,7 @@
         </div>
       </article>
       <article class="project-card cat-bim" data-categories="bim" data-search="Backend Developer &amp; Algorithm Engineer C# ASP.NET Core IFC Standards PCF Protocol">
-        <img class="project-cover" src="assets/projects/ifc-manager-application-autonomous-pcf-to-ifc-transformation-engine.webp" width="960" height="480" alt="" loading="lazy" decoding="async">
+        <img class="project-cover" src="assets/projects/ifc-manager-application-autonomous-pcf-to-ifc-transformation-engine.webp" data-src-dark="assets/projects/ifc-manager-application-autonomous-pcf-to-ifc-transformation-engine.webp" data-src-light="assets/projects/ifc-manager-application-autonomous-pcf-to-ifc-transformation-engine-light.webp" width="960" height="480" alt="" loading="lazy" decoding="async">
         <div class="project-card-body">
           <div class="project-meta"><span>BIM / AEC</span><span>Saipem</span></div>
           <h3><a id="case-ifc-manager-application-autonomous-pcf-to-ifc-transformation-engine" href="project-details.html?id=ifc-manager-application-autonomous-pcf-to-ifc-transformation-engine">IFC Manager Application<span class="project-arrow"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6M8 6h10v10"/></svg></span></a></h3>
@@ -145,7 +145,7 @@
         </div>
       </article>
       <article class="project-card cat-cloud" data-categories="cloud fs bim" data-search="Lead Architect &amp; Full-Stack Developer .NET 10 React TS Azure AKS Cosmos DB APS">
-        <img class="project-cover" src="assets/projects/saipem-data-driven-construction-ddc-platform.webp" width="960" height="480" alt="" loading="lazy" decoding="async">
+        <img class="project-cover" src="assets/projects/saipem-data-driven-construction-ddc-platform.webp" data-src-dark="assets/projects/saipem-data-driven-construction-ddc-platform.webp" data-src-light="assets/projects/saipem-data-driven-construction-ddc-platform-light.webp" width="960" height="480" alt="" loading="lazy" decoding="async">
         <div class="project-card-body">
           <div class="project-meta"><span>Cloud</span><span>Saipem</span></div>
           <h3><a id="case-saipem-data-driven-construction-ddc-platform" href="project-details.html?id=saipem-data-driven-construction-ddc-platform">Saipem Data-Driven Construction (DDC) Platform<span class="project-arrow"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6M8 6h10v10"/></svg></span></a></h3>
@@ -154,7 +154,7 @@
         </div>
       </article>
       <article class="project-card cat-bim" data-categories="bim" data-search="Lead Developer / Front-End Engineer JavaScript Vite Three.js @thatopen web-ifc">
-        <img class="project-cover" src="assets/projects/web-based-bim-editor-viewer.webp" width="960" height="480" alt="" loading="lazy" decoding="async">
+        <img class="project-cover" src="assets/projects/web-based-bim-editor-viewer.webp" data-src-dark="assets/projects/web-based-bim-editor-viewer.webp" data-src-light="assets/projects/web-based-bim-editor-viewer-light.webp" width="960" height="480" alt="" loading="lazy" decoding="async">
         <div class="project-card-body">
           <div class="project-meta"><span>BIM / AEC</span><span>Saipem</span></div>
           <h3><a id="case-web-based-bim-editor-viewer" href="project-details.html?id=web-based-bim-editor-viewer">Web-Based IFC 3D Viewer<span class="project-arrow"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6M8 6h10v10"/></svg></span></a></h3>
@@ -163,7 +163,7 @@
         </div>
       </article>
       <article class="project-card cat-ai" data-categories="ai bim" data-search="Lead AI &amp; Automation Engineer .NET Navisworks API Azure AI Foundry Sequential Agents">
-        <img class="project-cover" src="assets/projects/autonavis-autospool-automation-tools-ai-orchestrated-navisworks-automation.webp" width="960" height="480" alt="" loading="lazy" decoding="async">
+        <img class="project-cover" src="assets/projects/autonavis-autospool-automation-tools-ai-orchestrated-navisworks-automation.webp" data-src-dark="assets/projects/autonavis-autospool-automation-tools-ai-orchestrated-navisworks-automation.webp" data-src-light="assets/projects/autonavis-autospool-automation-tools-ai-orchestrated-navisworks-automation-light.webp" width="960" height="480" alt="" loading="lazy" decoding="async">
         <div class="project-card-body">
           <div class="project-meta"><span>AI</span><span>Saipem</span></div>
           <h3><a id="case-autonavis-autospool-automation-tools-ai-orchestrated-navisworks-automation" href="project-details.html?id=autonavis-autospool-automation-tools-ai-orchestrated-navisworks-automation">AutoNavis &amp; AutoSpool Automation Tools<span class="project-arrow"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6M8 6h10v10"/></svg></span></a></h3>
@@ -172,7 +172,7 @@
         </div>
       </article>
       <article class="project-card cat-ai" data-categories="ai" data-search="Lead AI Integration Specialist Azure OpenAI SQL Server Oracle DB Python/C#">
-        <img class="project-cover" src="assets/projects/chat-ddc-ask-db-ai-ask-table-ai-conversational-database-interface.webp" width="960" height="480" alt="" loading="lazy" decoding="async">
+        <img class="project-cover" src="assets/projects/chat-ddc-ask-db-ai-ask-table-ai-conversational-database-interface.webp" data-src-dark="assets/projects/chat-ddc-ask-db-ai-ask-table-ai-conversational-database-interface.webp" data-src-light="assets/projects/chat-ddc-ask-db-ai-ask-table-ai-conversational-database-interface-light.webp" width="960" height="480" alt="" loading="lazy" decoding="async">
         <div class="project-card-body">
           <div class="project-meta"><span>AI</span><span>Saipem</span></div>
           <h3><a id="case-chat-ddc-ask-db-ai-ask-table-ai-conversational-database-interface" href="project-details.html?id=chat-ddc-ask-db-ai-ask-table-ai-conversational-database-interface">Chat DDC (Ask DB AI / Ask Table AI)<span class="project-arrow"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6M8 6h10v10"/></svg></span></a></h3>
@@ -181,7 +181,7 @@
         </div>
       </article>
       <article class="project-card cat-bim" data-categories="bim" data-search="Library Creator &amp; Maintainer .NET Standard NuGet IFC C#">
-        <img class="project-cover" src="assets/projects/ifc-data-processing-library-suite-proprietary-bim-nuget-ecosystem.webp" width="960" height="480" alt="" loading="lazy" decoding="async">
+        <img class="project-cover" src="assets/projects/ifc-data-processing-library-suite-proprietary-bim-nuget-ecosystem.webp" data-src-dark="assets/projects/ifc-data-processing-library-suite-proprietary-bim-nuget-ecosystem.webp" data-src-light="assets/projects/ifc-data-processing-library-suite-proprietary-bim-nuget-ecosystem-light.webp" width="960" height="480" alt="" loading="lazy" decoding="async">
         <div class="project-card-body">
           <div class="project-meta"><span>BIM / AEC</span><span>Saipem</span></div>
           <h3><a id="case-ifc-data-processing-library-suite-proprietary-bim-nuget-ecosystem" href="project-details.html?id=ifc-data-processing-library-suite-proprietary-bim-nuget-ecosystem">IFC Data Processing Library Suite &amp; NuGet Ecosystem<span class="project-arrow"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6M8 6h10v10"/></svg></span></a></h3>
@@ -190,7 +190,7 @@
         </div>
       </article>
       <article class="project-card cat-cloud" data-categories="cloud" data-search="BI Developer &amp; Data Engineer Power BI Microsoft Fabric DAX Oracle DB MSSQL">
-        <img class="project-cover" src="assets/projects/power-bi-aps-viewer-data-connectors-enterprise-bi-architecture.webp" width="960" height="480" alt="" loading="lazy" decoding="async">
+        <img class="project-cover" src="assets/projects/power-bi-aps-viewer-data-connectors-enterprise-bi-architecture.webp" data-src-dark="assets/projects/power-bi-aps-viewer-data-connectors-enterprise-bi-architecture.webp" data-src-light="assets/projects/power-bi-aps-viewer-data-connectors-enterprise-bi-architecture-light.webp" width="960" height="480" alt="" loading="lazy" decoding="async">
         <div class="project-card-body">
           <div class="project-meta"><span>Cloud</span><span>Saipem</span></div>
           <h3><a id="case-power-bi-aps-viewer-data-connectors-enterprise-bi-architecture" href="project-details.html?id=power-bi-aps-viewer-data-connectors-enterprise-bi-architecture">Power BI APS Viewer &amp; Data Connectors<span class="project-arrow"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6M8 6h10v10"/></svg></span></a></h3>
@@ -199,7 +199,7 @@
         </div>
       </article>
       <article class="project-card cat-ai" data-categories="ai" data-search="Lead AI Developer Python Llama 3 Embedchain Vector DB">
-        <img class="project-cover" src="assets/projects/llama-3-business-conversational-agent.webp" width="960" height="480" alt="" loading="lazy" decoding="async">
+        <img class="project-cover" src="assets/projects/llama-3-business-conversational-agent.webp" data-src-dark="assets/projects/llama-3-business-conversational-agent.webp" data-src-light="assets/projects/llama-3-business-conversational-agent-light.webp" width="960" height="480" alt="" loading="lazy" decoding="async">
         <div class="project-card-body">
           <div class="project-meta"><span>AI</span><span>Personal &amp; Freelance</span></div>
           <h3><a id="case-llama-3-business-conversational-agent" href="project-details.html?id=llama-3-business-conversational-agent">Llama 3 Business Conversational Agent<span class="project-arrow"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6M8 6h10v10"/></svg></span></a></h3>
@@ -217,7 +217,7 @@
         </div>
       </article>
       <article class="project-card cat-fs" data-categories="fs" data-search="Full-Stack Architect Angular 17 RxJS Firebase WASM">
-        <img class="project-cover" src="assets/projects/angular-clips-video-processing-platform.webp" width="960" height="480" alt="" loading="lazy" decoding="async">
+        <img class="project-cover" src="assets/projects/angular-clips-video-processing-platform.webp" data-src-dark="assets/projects/angular-clips-video-processing-platform.webp" data-src-light="assets/projects/angular-clips-video-processing-platform-light.webp" width="960" height="480" alt="" loading="lazy" decoding="async">
         <div class="project-card-body">
           <div class="project-meta"><span>Full Stack</span><span>Personal &amp; Freelance</span></div>
           <h3><a id="case-angular-clips-video-processing-platform" href="project-details.html?id=angular-clips-video-processing-platform">Angular-Clips (Video Streaming &amp; Management Platform)<span class="project-arrow"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6M8 6h10v10"/></svg></span></a></h3>
@@ -226,7 +226,7 @@
         </div>
       </article>
       <article class="project-card cat-dt" data-categories="dt" data-search="Rust &amp; WebAssembly Engineer Rust WebAssembly Webpack JavaScript">
-        <img class="project-cover" src="assets/projects/wasm-image-effects-engine.webp" width="960" height="480" alt="" loading="lazy" decoding="async">
+        <img class="project-cover" src="assets/projects/wasm-image-effects-engine.webp" data-src-dark="assets/projects/wasm-image-effects-engine.webp" data-src-light="assets/projects/wasm-image-effects-engine-light.webp" width="960" height="480" alt="" loading="lazy" decoding="async">
         <div class="project-card-body">
           <div class="project-meta"><span>WASM</span><span>Personal &amp; Freelance</span></div>
           <h3><a id="case-wasm-image-effects-engine" href="project-details.html?id=wasm-image-effects-engine">Image Processing Web Application (Rust &amp; WebAssembly)<span class="project-arrow"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6M8 6h10v10"/></svg></span></a></h3>
@@ -235,7 +235,7 @@
         </div>
       </article>
       <article class="project-card cat-cloud" data-categories="cloud fs" data-search="Full Stack .NET Developer (Personal Project) .NET 8 Microservices Azure Service Bus EF Core Stripe">
-        <img class="project-cover" src="assets/projects/mango-microservices-commerce-system.webp" width="960" height="480" alt="" loading="lazy" decoding="async">
+        <img class="project-cover" src="assets/projects/mango-microservices-commerce-system.webp" data-src-dark="assets/projects/mango-microservices-commerce-system.webp" data-src-light="assets/projects/mango-microservices-commerce-system-light.webp" width="960" height="480" alt="" loading="lazy" decoding="async">
         <div class="project-card-body">
           <div class="project-meta"><span>Cloud</span><span>Personal &amp; Freelance</span></div>
           <h3><a id="case-mango-microservices-commerce-system" href="project-details.html?id=mango-microservices-commerce-system">E-Commerce Microservices Application<span class="project-arrow"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6M8 6h10v10"/></svg></span></a></h3>
@@ -244,7 +244,7 @@
         </div>
       </article>
       <article class="project-card cat-bim" data-categories="bim dt" data-search="BIM Tool Developer C# Autodesk Revit API">
-        <img class="project-cover" src="assets/projects/revit-automation-plastering-extension.webp" width="960" height="480" alt="" loading="lazy" decoding="async">
+        <img class="project-cover" src="assets/projects/revit-automation-plastering-extension.webp" data-src-dark="assets/projects/revit-automation-plastering-extension.webp" data-src-light="assets/projects/revit-automation-plastering-extension-light.webp" width="960" height="480" alt="" loading="lazy" decoding="async">
         <div class="project-card-body">
           <div class="project-meta"><span>BIM / AEC</span><span>ATLAS</span></div>
           <h3><a id="case-revit-automation-plastering-extension" href="project-details.html?id=revit-automation-plastering-extension">Revit Automation: Plastering Extension<span class="project-arrow"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6M8 6h10v10"/></svg></span></a></h3>
@@ -253,7 +253,7 @@
         </div>
       </article>
       <article class="project-card cat-fs" data-categories="fs" data-search="Lead API Developer .NET Core EF Core MySQL Redis">
-        <img class="project-cover" src="assets/projects/hotel-listing-restful-api.webp" width="960" height="480" alt="" loading="lazy" decoding="async">
+        <img class="project-cover" src="assets/projects/hotel-listing-restful-api.webp" data-src-dark="assets/projects/hotel-listing-restful-api.webp" data-src-light="assets/projects/hotel-listing-restful-api-light.webp" width="960" height="480" alt="" loading="lazy" decoding="async">
         <div class="project-card-body">
           <div class="project-meta"><span>Full Stack</span><span>Personal &amp; Freelance</span></div>
           <h3><a id="case-hotel-listing-restful-api" href="project-details.html?id=hotel-listing-restful-api">Hotel Listing RESTful API<span class="project-arrow"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6M8 6h10v10"/></svg></span></a></h3>
@@ -448,14 +448,26 @@
       </div>
       <div class="about-grid">
         <div class="about-copy">
-          <p>I’m a full stack developer and BIM automation specialist with a background in civil engineering and over six years of experience building software for architecture, engineering, and construction.</p>
-          <p>I work remotely from Egypt as a BIM Coordinator and Software Developer at Saipem. I maintain the DDC platform and DDC Tasks Manager, build n8n workflows, and maintain AutoSpool.</p>
+          <div class="about-window">
+            <div class="skill-bar" aria-hidden="true"><span class="dots"><i></i><i></i><i></i></span><span class="skill-file">~/bassel/README.md</span></div>
+            <div class="about-body">
+              <p>I’m a <mark>full stack developer</mark> and <mark>BIM automation specialist</mark> with a background in civil engineering and <mark>over six years of experience</mark> building software for architecture, engineering, and construction.</p>
+              <p>I work remotely from Egypt as a BIM Coordinator and Software Developer at <strong>Saipem</strong>. I maintain the DDC platform and DDC Tasks Manager, build n8n workflows, and maintain AutoSpool.</p>
+<pre class="about-code" aria-hidden="true"><code><span class="k">const</span> <span class="v">bassel</span> = {
+  role:     <span class="s">"BIM Coordinator &amp; Software Developer"</span>,
+  company:  <span class="s">"Saipem"</span>,
+  location: <span class="s">"Egypt · remote"</span>,
+  focus:    [<span class="s">"BIM"</span>, <span class="s">"Full stack"</span>, <span class="s">"Cloud"</span>, <span class="s">"AI"</span>],
+  openToWork: <span class="b">true</span>,
+};</code></pre>
+            </div>
+          </div>
         </div>
         <dl class="focus-card">
-          <div><dt><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 5v10l-9 5-9-5V7l9-5Zm0 10v10M3 7l9 5 9-5"/></svg> BIM automation</dt><dd>Navisworks, Revit, IFC, and Autodesk Platform Services</dd></div>
-          <div><dt><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m8 6-6 6 6 6m8-12 6 6-6 6m-2-15-4 18"/></svg> Full stack delivery</dt><dd>ASP.NET Core APIs, React, and TypeScript</dd></div>
-          <div><dt><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18a4 4 0 1 1 .5-8 6 6 0 0 1 11.5 1 3.5 3.5 0 1 1 .5 7Z"/></svg> Cloud architecture</dt><dd>Azure, Kubernetes, and microservices</dd></div>
-          <div><dt><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4m6-4v4m-6 12v4m6-4v4M2 9h4m-4 6h4m12-6h4m-4 6h4"/><rect x="10" y="10" width="4" height="4" rx=".5"/></svg> Applied AI</dt><dd>LLM agents and natural-language database interfaces</dd></div>
+          <div style="--tone:#79f2ca"><dt><span class="focus-index" aria-hidden="true">01</span><span class="skill-icon"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 5v10l-9 5-9-5V7l9-5Zm0 10v10M3 7l9 5 9-5"/></svg></span>BIM automation</dt><dd>Navisworks, Revit, IFC, and Autodesk Platform Services</dd></div>
+          <div style="--tone:#61dafb"><dt><span class="focus-index" aria-hidden="true">02</span><span class="skill-icon"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m8 6-6 6 6 6m8-12 6 6-6 6m-2-15-4 18"/></svg></span>Full stack delivery</dt><dd>ASP.NET Core APIs, React, and TypeScript</dd></div>
+          <div style="--tone:#3b9cff"><dt><span class="focus-index" aria-hidden="true">03</span><span class="skill-icon"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18a4 4 0 1 1 .5-8 6 6 0 0 1 11.5 1 3.5 3.5 0 1 1 .5 7Z"/></svg></span>Cloud architecture</dt><dd>Azure, Kubernetes, and microservices</dd></div>
+          <div style="--tone:#f472b6"><dt><span class="focus-index" aria-hidden="true">04</span><span class="skill-icon"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4m6-4v4m-6 12v4m6-4v4M2 9h4m-4 6h4m12-6h4m-4 6h4"/><rect x="10" y="10" width="4" height="4" rx=".5"/></svg></span>Applied AI</dt><dd>LLM agents and natural-language database interfaces</dd></div>
         </dl>
       </div>
     </section>
@@ -465,28 +477,34 @@
         <div><h2 id="skills-title">Skills &amp; technologies</h2></div>
       </div>
       <div class="skills-grid">
-      <article class="skill-card">
-        <h3><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m8 6-6 6 6 6m8-12 6 6-6 6m-2-15-4 18"/></svg>Frontend</h3>
+      <article class="skill-card" data-spotlight style="--tone:#61dafb">
+        <div class="skill-bar" aria-hidden="true"><span class="dots"><i></i><i></i><i></i></span><span class="skill-file">frontend.tsx</span><span class="skill-count">09 items</span></div>
+        <h3><span class="skill-icon"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m8 6-6 6 6 6m8-12 6 6-6 6m-2-15-4 18"/></svg></span>Frontend</h3>
         <ul class="tag-list"><li>React TS</li><li>TypeScript</li><li>Angular</li><li>HTML5</li><li>CSS / Sass</li><li>Tailwind</li><li>Node.js</li><li>ASP.NET Razor</li><li>XAML</li></ul>
       </article>
-      <article class="skill-card">
-        <h3><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4m6-4v4m-6 12v4m6-4v4M2 9h4m-4 6h4m12-6h4m-4 6h4"/><rect x="10" y="10" width="4" height="4" rx=".5"/></svg>Backend</h3>
+      <article class="skill-card" data-spotlight style="--tone:#a78bfa">
+        <div class="skill-bar" aria-hidden="true"><span class="dots"><i></i><i></i><i></i></span><span class="skill-file">backend.cs</span><span class="skill-count">09 items</span></div>
+        <h3><span class="skill-icon"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4m6-4v4m-6 12v4m6-4v4M2 9h4m-4 6h4m12-6h4m-4 6h4"/><rect x="10" y="10" width="4" height="4" rx=".5"/></svg></span>Backend</h3>
         <ul class="tag-list"><li>.NET / C#</li><li>ASP.NET Core</li><li>Python</li><li>REST API</li><li>EF Core</li><li>WPF</li><li>OOP</li><li>RUST</li><li>MVVM</li></ul>
       </article>
-      <article class="skill-card">
-        <h3><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 5v10l-9 5-9-5V7l9-5Zm0 10v10M3 7l9 5 9-5"/></svg>BIM / AEC</h3>
+      <article class="skill-card" data-spotlight style="--tone:#79f2ca">
+        <div class="skill-bar" aria-hidden="true"><span class="dots"><i></i><i></i><i></i></span><span class="skill-file">bim_aec.ifc</span><span class="skill-count">10 items</span></div>
+        <h3><span class="skill-icon"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 5v10l-9 5-9-5V7l9-5Zm0 10v10M3 7l9 5 9-5"/></svg></span>BIM / AEC</h3>
         <ul class="tag-list"><li>Autodesk APS</li><li>Revit API</li><li>Navisworks API</li><li>IFC Standards</li><li>ThatOpen</li><li>Dynamo</li><li>AutoCAD</li><li>SYNCHRO 4D</li><li>Primavera P6</li><li>n8n</li></ul>
       </article>
-      <article class="skill-card">
-        <h3><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18a4 4 0 1 1 .5-8 6 6 0 0 1 11.5 1 3.5 3.5 0 1 1 .5 7Z"/></svg>Cloud / DevOps</h3>
+      <article class="skill-card" data-spotlight style="--tone:#3b9cff">
+        <div class="skill-bar" aria-hidden="true"><span class="dots"><i></i><i></i><i></i></span><span class="skill-file">cloud.yaml</span><span class="skill-count">07 items</span></div>
+        <h3><span class="skill-icon"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18a4 4 0 1 1 .5-8 6 6 0 0 1 11.5 1 3.5 3.5 0 1 1 .5 7Z"/></svg></span>Cloud / DevOps</h3>
         <ul class="tag-list"><li>Azure Services</li><li>AKS / K8S</li><li>Docker</li><li>Harbor</li><li>Azure Service Bus</li><li>Cosmos DB</li><li>Azure AI Foundry</li></ul>
       </article>
-      <article class="skill-card">
-        <h3><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4m6-4v4m-6 12v4m6-4v4M2 9h4m-4 6h4m12-6h4m-4 6h4"/><rect x="10" y="10" width="4" height="4" rx=".5"/></svg>Data / AI</h3>
+      <article class="skill-card" data-spotlight style="--tone:#f472b6">
+        <div class="skill-bar" aria-hidden="true"><span class="dots"><i></i><i></i><i></i></span><span class="skill-file">data_ai.py</span><span class="skill-count">08 items</span></div>
+        <h3><span class="skill-icon"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4m6-4v4m-6 12v4m6-4v4M2 9h4m-4 6h4m12-6h4m-4 6h4"/><rect x="10" y="10" width="4" height="4" rx=".5"/></svg></span>Data / AI</h3>
         <ul class="tag-list"><li>LLM / LangChain</li><li>PySpark</li><li>SQL</li><li>Oracle DB</li><li>MS SQL</li><li>Power BI</li><li>Microsoft Fabric</li><li>DAX</li></ul>
       </article>
-      <article class="skill-card">
-        <h3><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m8 6-6 6 6 6m8-12 6 6-6 6m-2-15-4 18"/></svg>Tools</h3>
+      <article class="skill-card" data-spotlight style="--tone:#fbbf24">
+        <div class="skill-bar" aria-hidden="true"><span class="dots"><i></i><i></i><i></i></span><span class="skill-file">tools.json</span><span class="skill-count">08 items</span></div>
+        <h3><span class="skill-icon"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m8 6-6 6 6 6m8-12 6 6-6 6m-2-15-4 18"/></svg></span>Tools</h3>
         <ul class="tag-list"><li>Git / GitHub</li><li>Figma</li><li>NuGet</li><li>WebAssembly</li><li>WebGL</li><li>Three.js</li><li>Software Testing</li><li>Data Structures</li></ul>
       </article>
       </div>

@@ -139,7 +139,14 @@ if (project) {
   cover.alt = '';
   cover.decoding = 'async';
   cover.addEventListener('error', () => { visual.hidden = true; }, { once: true });
-  cover.src = project.coverSrc || `assets/projects/${project.id}.webp`;
+  const coverSrc = project.coverSrc || `assets/projects/${project.id}.webp`;
+  if (project.coverSrcLight) {
+    cover.dataset.srcDark = coverSrc;
+    cover.dataset.srcLight = project.coverSrcLight;
+    cover.src = document.documentElement.dataset.theme === 'light' ? project.coverSrcLight : coverSrc;
+  } else {
+    cover.src = coverSrc;
+  }
   visual.prepend(cover);
   visual.hidden = false;
 

@@ -5,6 +5,7 @@ const projectsData = {
     "category": "BIM / AEC",
     "role": "Software Developer",
     "coverSrc": "assets/projects/ifc-to-nwc.svg",
+    "coverSrcLight": "assets/projects/ifc-to-nwc-light.svg",
     "tags": ["C++", "Python", "IfcOpenShell", "Autodesk NWCreate", "Windows x64", "n8n"],
     "overview": "A standalone Windows x64 converter that creates Navisworks Cache (NWC) files directly from IFC models without a Navisworks installation. A desktop app and CLI support both single-file conversions and folder queues.",
     "workflow": {
@@ -57,6 +58,7 @@ const projectsData = {
   },
   "ddc-tasks-manager": {
     "id": "ddc-tasks-manager",
+    "coverSrcLight": "assets/projects/ddc-tasks-manager-light.webp",
     "title": "DDC Tasks Manager",
     "category": "Full Stack",
     "catClass": "cat-fs",
@@ -98,6 +100,7 @@ const projectsData = {
   },
   "bim-toolkit": {
     "id": "bim-toolkit",
+    "coverSrcLight": "assets/projects/bim-toolkit-light.webp",
     "title": "BIM Toolkit",
     "category": "BIM / AEC",
     "catClass": "cat-bim",
@@ -140,6 +143,7 @@ const projectsData = {
   },
   "n8n-automation": {
     "id": "n8n-automation",
+    "coverSrcLight": "assets/projects/n8n-automation-light.webp",
     "title": "N8N automation",
     "category": "BIM / AEC",
     "catClass": "cat-bim",
@@ -190,6 +194,7 @@ const projectsData = {
   },
   "autospool-automated-piping-spool-generation-engine": {
     "id": "autospool-automated-piping-spool-generation-engine",
+    "coverSrcLight": "assets/projects/autospool-automated-piping-spool-generation-engine-light.webp",
     "title": "AutoSpool Engine",
     "category": "Desktop",
     "catClass": "cat-dt",
@@ -229,6 +234,7 @@ const projectsData = {
   },
   "ifc-manager-application-autonomous-pcf-to-ifc-transformation-engine": {
     "id": "ifc-manager-application-autonomous-pcf-to-ifc-transformation-engine",
+    "coverSrcLight": "assets/projects/ifc-manager-application-autonomous-pcf-to-ifc-transformation-engine-light.webp",
     "title": "IFC Manager Application",
     "category": "BIM / AEC",
     "catClass": "cat-bim",
@@ -268,6 +274,7 @@ const projectsData = {
   },
   "saipem-data-driven-construction-ddc-platform": {
     "id": "saipem-data-driven-construction-ddc-platform",
+    "coverSrcLight": "assets/projects/saipem-data-driven-construction-ddc-platform-light.webp",
     "title": "Saipem Data-Driven Construction (DDC) Platform",
     "category": "Cloud",
     "catClass": "cat-cloud",
@@ -310,6 +317,7 @@ const projectsData = {
   },
   "web-based-bim-editor-viewer": {
     "id": "web-based-bim-editor-viewer",
+    "coverSrcLight": "assets/projects/web-based-bim-editor-viewer-light.webp",
     "title": "Web-Based IFC 3D Viewer",
     "category": "BIM / AEC",
     "catClass": "cat-bim",
@@ -350,6 +358,7 @@ const projectsData = {
   },
   "autonavis-autospool-automation-tools-ai-orchestrated-navisworks-automation": {
     "id": "autonavis-autospool-automation-tools-ai-orchestrated-navisworks-automation",
+    "coverSrcLight": "assets/projects/autonavis-autospool-automation-tools-ai-orchestrated-navisworks-automation-light.webp",
     "title": "AutoNavis & AutoSpool Automation Tools",
     "category": "AI",
     "catClass": "cat-ai",
@@ -385,6 +394,7 @@ const projectsData = {
   },
   "chat-ddc-ask-db-ai-ask-table-ai-conversational-database-interface": {
     "id": "chat-ddc-ask-db-ai-ask-table-ai-conversational-database-interface",
+    "coverSrcLight": "assets/projects/chat-ddc-ask-db-ai-ask-table-ai-conversational-database-interface-light.webp",
     "title": "Chat DDC (Ask DB AI / Ask Table AI)",
     "category": "AI",
     "catClass": "cat-ai",
@@ -424,6 +434,7 @@ const projectsData = {
   },
   "ifc-data-processing-library-suite-proprietary-bim-nuget-ecosystem": {
     "id": "ifc-data-processing-library-suite-proprietary-bim-nuget-ecosystem",
+    "coverSrcLight": "assets/projects/ifc-data-processing-library-suite-proprietary-bim-nuget-ecosystem-light.webp",
     "title": "IFC Data Processing Library Suite",
     "category": "BIM / AEC",
     "catClass": "cat-bim",
@@ -465,6 +476,7 @@ const projectsData = {
   },
   "power-bi-aps-viewer-data-connectors-enterprise-bi-architecture": {
     "id": "power-bi-aps-viewer-data-connectors-enterprise-bi-architecture",
+    "coverSrcLight": "assets/projects/power-bi-aps-viewer-data-connectors-enterprise-bi-architecture-light.webp",
     "title": "Power BI APS Viewer & Data Connectors",
     "category": "Cloud",
     "catClass": "cat-cloud",
@@ -501,6 +513,7 @@ const projectsData = {
   },
   "llama-3-business-conversational-agent": {
     "id": "llama-3-business-conversational-agent",
+    "coverSrcLight": "assets/projects/llama-3-business-conversational-agent-light.webp",
     "title": "Llama 3 Business Conversational Agent",
     "category": "AI",
     "catClass": "cat-ai",
@@ -573,6 +586,7 @@ const projectsData = {
   },
   "angular-clips-video-processing-platform": {
     "id": "angular-clips-video-processing-platform",
+    "coverSrcLight": "assets/projects/angular-clips-video-processing-platform-light.webp",
     "title": "Angular-Clips (Video Streaming & Management Platform)",
     "category": "Full Stack",
     "catClass": "cat-fs",
@@ -615,6 +629,7 @@ const projectsData = {
   },
   "wasm-image-effects-engine": {
     "id": "wasm-image-effects-engine",
+    "coverSrcLight": "assets/projects/wasm-image-effects-engine-light.webp",
     "title": "Image Processing Web Application (Rust & WebAssembly)",
     "category": "WASM",
     "catClass": "cat-dt",
@@ -654,6 +669,7 @@ const projectsData = {
   },
   "mango-microservices-commerce-system": {
     "id": "mango-microservices-commerce-system",
+    "coverSrcLight": "assets/projects/mango-microservices-commerce-system-light.webp",
     "title": "E-Commerce Microservices Application",
     "category": "Cloud",
     "catClass": "cat-cloud",
@@ -694,6 +710,7 @@ const projectsData = {
   },
   "revit-automation-plastering-extension": {
     "id": "revit-automation-plastering-extension",
+    "coverSrcLight": "assets/projects/revit-automation-plastering-extension-light.webp",
     "title": "Revit Automation: Plastering Extension",
     "category": "BIM / AEC",
     "catClass": "cat-bim",
@@ -722,6 +739,7 @@ const projectsData = {
   },
   "hotel-listing-restful-api": {
     "id": "hotel-listing-restful-api",
+    "coverSrcLight": "assets/projects/hotel-listing-restful-api-light.webp",
     "title": "Hotel Listing RESTful API",
     "category": "Full Stack",
     "catClass": "cat-fs",
