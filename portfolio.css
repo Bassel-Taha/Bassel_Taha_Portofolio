@@ -1433,3 +1433,87 @@ section[tabindex="-1"]:focus { outline: none; }
 @media (prefers-reduced-motion: reduce) {
   .education-card:hover, .course-list li:hover, .contact-links a:hover { transform: none; }
 }
+
+/* Hero v2: tighter copy column, typed roles, socials, living image */
+.hero-frame { min-height: clamp(470px, 38vw, 560px); }
+.hero-copy { position: relative; width: min(600px, 54%); }
+.hero-frame::before {
+  background:
+    linear-gradient(90deg, #09121b 0%, #09121b 30%, #09121bf2 42%, #09121b99 54%, #09121b14 70%, transparent 80%),
+    linear-gradient(0deg, #07121be6, transparent 22%);
+}
+.hero h1 {
+  font-size: clamp(3.4rem, 6.2vw, 6.4rem);
+  white-space: nowrap;
+  text-shadow: 0 0 40px #79f2ca1f;
+}
+.hero-role { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px; min-height: 1.4em; font-size: clamp(1.15rem, 1.9vw, 1.6rem); }
+.role-line { display: inline-flex; align-items: baseline; white-space: nowrap; }
+.role-line .code-token { color: #79f2ca; font: 500 .9em var(--mono); }
+.role-line .code-token:first-child { margin-right: .15em; }
+.role-line .code-token:last-child { margin-left: .35em; }
+.role-typed { color: #f1f7f8; }
+.role-caret { display: inline-block; width: 2px; height: 1em; margin-left: 2px; align-self: center; background: #79f2ca; animation: blink 1.05s steps(1) infinite; }
+.hero-facts { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 12px; color: #9fb3bd; font: 500 .78rem var(--mono); }
+.hero-facts span::before { content: "#"; margin-right: 2px; color: #79f2ca; opacity: .75; }
+.hero-description { max-width: 40ch; margin-top: 18px; }
+.hero-actions { align-items: center; margin-top: 28px; }
+.hero-social { display: inline-flex; gap: 8px; margin-left: 6px; padding-left: 14px; border-left: 1px solid #2c4a55; }
+.hero-social a {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid #2c4a55;
+  border-radius: 10px;
+  background: #0d1a24b3;
+  color: #c7dbdc;
+  transition: color var(--motion), border-color var(--motion), box-shadow var(--motion), transform var(--motion);
+}
+.hero-social a:hover { color: #79f2ca; border-color: #79f2ca; box-shadow: 0 0 18px -6px #79f2ca; transform: translateY(-2px); }
+.hero-social svg { width: 18px; height: 18px; }
+.hero .button-primary { box-shadow: 0 10px 30px -12px #79f2caaa; }
+@media (prefers-reduced-motion: no-preference) {
+  .hero-image { animation: hero-float 7s ease-in-out infinite; }
+}
+@keyframes hero-float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -8px; } }
+
+:root[data-theme="light"] .hero-frame::before {
+  background:
+    linear-gradient(90deg, #f2faff 0%, #f2faff 30%, #f2fafff2 42%, #f2faff99 54%, #f2faff14 70%, transparent 80%),
+    linear-gradient(0deg, #f2faffd9, transparent 22%);
+}
+:root[data-theme="light"] .hero h1 { text-shadow: none; }
+:root[data-theme="light"] .role-line .code-token { color: #0b8a6c; }
+:root[data-theme="light"] .role-typed { color: #10282b; }
+:root[data-theme="light"] .role-caret { background: #0b8a6c; }
+:root[data-theme="light"] .hero-facts { color: #4c6664; }
+:root[data-theme="light"] .hero-facts span::before { color: #0b8a6c; }
+:root[data-theme="light"] .hero-social { border-color: #c3d6dc; }
+:root[data-theme="light"] .hero-social a { border-color: #c3d6dc; background: #ffffffcc; color: #35514f; }
+:root[data-theme="light"] .hero-social a:hover { color: #0b644f; border-color: #0b644f; box-shadow: 0 0 18px -8px #0b644f; }
+
+@media (max-width: 910px) {
+  .hero-copy { width: 70%; }
+}
+@media (max-width: 690px) {
+  .hero-copy { width: 100%; }
+  .hero h1 { font-size: clamp(2.9rem, 13vw, 4.6rem); }
+  .hero-social { margin-left: 0; padding-left: 0; border-left: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .role-caret { display: none; }
+}
+@media (max-width: 910px) {
+  .hero-frame::before { background: linear-gradient(90deg, #09121b 5%, #09121bf5 34%, #09121bb3 62%, #09121b40 100%); }
+  :root[data-theme="light"] .hero-frame::before { background: linear-gradient(90deg, #f2faff 5%, #f2fafff5 34%, #f2faffb3 62%, #f2faff40 100%); }
+}
+@media (max-width: 690px) {
+  .hero-frame::before, :root[data-theme="light"] .hero-frame::before { display: none; }
+}
+.hero-role .role-line span { display: inline-block; }
+.hero-role .role-line .role-caret { display: inline-block; }
+.hero-social { margin-left: 0; padding-left: 0; border-left: 0; }
+.hero-copy { width: min(640px, 56%); }
+@media (max-width: 910px) { .hero-copy { width: 70%; } }
+@media (max-width: 690px) { .hero-copy { width: 100%; } }

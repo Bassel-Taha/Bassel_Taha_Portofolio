@@ -320,7 +320,41 @@ function setupDigitalCursor() {
   document.documentElement.addEventListener('pointerleave', () => document.body.classList.remove('cursor-live'));
 }
 
+function setupTypedRoles() {
+  const el = document.querySelector('.role-typed[data-roles]');
+  if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  let roles;
+  try { roles = JSON.parse(el.dataset.roles); } catch { return; }
+  if (!roles.length) return;
+
+  let index = 0;
+  let length = roles[0].length;
+  let deleting = true;
+  const wait = (ms) => setTimeout(step, ms);
+
+  function step() {
+    const word = roles[index];
+    if (deleting) {
+      length -= 1;
+      el.textContent = word.slice(0, length);
+      if (length > 0) return wait(38);
+      deleting = false;
+      index = (index + 1) % roles.length;
+      return wait(260);
+    }
+    const next = roles[index];
+    length += 1;
+    el.textContent = next.slice(0, length);
+    if (length < next.length) return wait(62);
+    deleting = true;
+    return wait(2200);
+  }
+
+  wait(2600);
+}
+
 setupSpotlight();
 setupQuickFind();
 setupStatCounters();
 setupDigitalCursor();
+setupTypedRoles();
